@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lucky Trade - Ultimate Sovereign Matrix</title>
+    <title>Lucky Trade - Hyperion Terminal v9.0</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -11,145 +11,267 @@
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@500;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&family=Rajdhani:wght@500;600;700;900&display=swap');
         
-        body { font-family: 'Rajdhani', sans-serif; }
+        body { font-family: 'Rajdhani', sans-serif; background-color: #03010a; }
         .font-cyber { font-family: 'Orbitron', sans-serif; }
-        .scrollbar-none::-webkit-scrollbar { display: none; }
-        .scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
         
-        @keyframes scanline { 0% { transform: translateY(-100%); } 100% { transform: translateY(100vh); } }
-        .animate-scan { animation: scanline 8s linear infinite; }
-        @keyframes hologramFade { from { opacity: 0; filter: blur(10px); transform: scale(0.95); } to { opacity: 1; filter: blur(0); transform: scale(1); } }
-        .view-active { animation: hologramFade 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        /* Sci-Fi Decorative Grid System */
+        .cyber-grid {
+            background-image: linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+
+        /* Continuous Matrix Scanline Animation */
+        @keyframes scanline { 
+            0% { transform: translateY(-100%); } 
+            100% { transform: translateY(100vh); } 
+        }
+        .animate-scan { animation: scanline 6s linear infinite; }
         
-        /* ApexCharts Glowing Overrides */
-        .apexcharts-tooltip { background: #0b0f19 !important; border: 1px solid #22d3ee !important; color: #fff; box-shadow: 0 0 20px rgba(34,211,238,0.2); }
-        .apexcharts-tooltip-title { background: #05070c !important; border-bottom: 1px solid #22d3ee !important; font-family: 'Orbitron', sans-serif; font-size: 10px !important; }
-        .apexcharts-xcrosshairs, .apexcharts-ycrosshairs { stroke: #22d3ee !important; stroke-dasharray: 4; }
+        /* Floating Particle Atmosphere */
+        @keyframes drift {
+            0% { transform: translateY(0px) translateX(0px); rotate: 0deg; }
+            50% { transform: translateY(-20px) translateX(10px); rotate: 180deg; }
+            100% { transform: translateY(0px) translateX(0px); rotate: 360deg; }
+        }
+        .animate-drift { animation: drift 15s ease-in-out infinite; }
+
+        /* Custom Scrollbar Removal */
+        .scrollbar-hidden::-webkit-scrollbar { display: none; }
+        .scrollbar-hidden { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* Glow Filter Presets */
+        .glow-cyan { filter: drop-shadow(0 0 8px #00f0ff); }
+        .glow-pink { filter: drop-shadow(0 0 8px #ff007f); }
+        .glow-green { filter: drop-shadow(0 0 8px #39ff14); }
+        
+        /* ApexCharts Tooltip Overrides */
+        .apexcharts-tooltip { background: #070314 !important; border: 2px solid #00f0ff !important; color: #fff; box-shadow: 0 0 25px rgba(0, 240, 255, 0.3); }
+        .apexcharts-tooltip-title { background: #0c0524 !important; border-bottom: 1px solid #ff007f !important; font-family: 'Orbitron', sans-serif; font-size: 11px !important; color: #fff000 !important; }
     </style>
 </head>
-<body class="bg-[#020308] text-slate-100 min-h-screen relative overflow-x-hidden pb-32 selection:bg-cyan-500/30">
+<body class="text-slate-100 min-h-screen relative overflow-x-hidden pb-32 selection:bg-cyan-500/40 cyber-grid">
 
-    <div class="fixed inset-0 bg-[radial-gradient(ellipse_at_top,rgba(236,72,153,0.1),transparent_50%)] pointer-events-none z-0"></div>
-    <div class="fixed inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none z-0 opacity-20"></div>
-    <div class="fixed inset-0 w-full h-[5px] bg-cyan-400/20 animate-scan pointer-events-none z-50 shadow-[0_0_20px_#22d3ee]"></div>
+    <div class="fixed inset-0 bg-[radial-gradient(circle_at_70%_10%,rgba(255,0,127,0.12),transparent_45%)] pointer-events-none z-0"></div>
+    <div class="fixed inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(0,240,255,0.12),transparent_40%)] pointer-events-none z-0"></div>
+    <div class="fixed inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(139,92,246,0.05),transparent_60%)] pointer-events-none z-0"></div>
+    
+    <div class="fixed top-1/4 left-10 w-48 h-48 bg-purple-600/10 rounded-full blur-[80px] animate-drift pointer-events-none z-0"></div>
+    <div class="fixed bottom-1/3 right-12 w-64 h-64 bg-cyan-600/10 rounded-full blur-[100px] animate-drift pointer-events-none z-0" style="animation-delay: -5s;"></div>
+    
+    <div class="fixed inset-0 w-full h-[6px] bg-gradient-to-r from-transparent via-cyan-400/30 to-transparent animate-scan pointer-events-none z-50 shadow-[0_0_15px_#00f0ff]"></div>
 
-    <section id="screen-auth" class="fixed inset-0 z-[100] bg-[#020308]/95 backdrop-blur-3xl flex items-center justify-center p-4">
-        <div class="w-full max-w-md p-8 rounded-[2rem] bg-[#0a0d1c] border border-cyan-500/50 shadow-[0_0_80px_rgba(34,211,238,0.15)]">
-            <h1 class="text-4xl font-cyber font-black tracking-widest text-center text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-fuchsia-400 mb-8">LUCKY TRADE</h1>
-            <div class="space-y-4">
-                <input type="text" id="auth-name" class="w-full p-4 bg-black border border-white/10 rounded-xl text-white outline-none focus:border-cyan-400" placeholder="Your Name" />
-                <input type="email" id="auth-email" class="w-full p-4 bg-black border border-white/10 rounded-xl text-white outline-none focus:border-cyan-400" placeholder="Email Address" />
-                <select id="auth-country" onchange="adaptCurrency()" class="w-full p-4 bg-black border border-white/10 rounded-xl text-white outline-none focus:border-emerald-400">
-                    <option value="NG">Nigeria (NGN)</option>
-                    <option value="KE">Kenya (KES)</option>
-                    <option value="US">Global (USD)</option>
-                </select>
-                <button onclick="executeLogin()" class="w-full py-5 rounded-xl bg-cyan-600 text-white font-cyber font-black uppercase tracking-[0.2em] shadow-[0_0_30px_rgba(34,211,238,0.5)]">INITIALIZE</button>
+    <section id="screen-auth" class="fixed inset-0 z-[100] bg-[#03010a]/98 backdrop-blur-2xl flex items-center justify-center p-4 overflow-y-auto">
+        <div class="w-full max-w-md p-8 rounded-[2.5rem] bg-gradient-to-b from-[#0e0724] to-[#05020c] border-2 border-cyan-500/40 shadow-[0_0_60px_rgba(0,240,255,0.2)] relative">
+            <div class="absolute -top-12 -left-12 w-36 h-36 bg-fuchsia-500/20 blur-[60px] rounded-full"></div>
+            
+            <div class="text-center space-y-2 mb-8 relative z-10">
+                <div class="w-20 h-20 mx-auto rounded-2xl bg-gradient-to-br from-cyan-400 via-purple-600 to-pink-600 flex items-center justify-center shadow-[0_0_35px_rgba(0,240,255,0.5)] border border-white/20">
+                    <i data-lucide="terminal" class="w-10 h-10 text-white animate-pulse"></i>
+                </div>
+                <h1 class="text-3xl font-cyber font-black tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-fuchsia-400 to-yellow-300 drop-shadow-[0_0_15px_rgba(0,240,255,0.4)]">LUCKY TRADE</h1>
+                <p class="text-[11px] font-cyber font-black text-cyan-400 uppercase tracking-[0.3em]">QUANTUM INTERFACE v9.0</p>
+            </div>
+
+            <div class="space-y-5 relative z-10">
+                <div class="relative">
+                    <label class="absolute -top-2 left-4 px-2 bg-[#0d0623] text-[10px] font-cyber font-black text-fuchsia-400 uppercase tracking-widest border border-fuchsia-500/30 rounded">Operator Name</label>
+                    <input type="text" id="auth-name" class="w-full p-4 bg-black/60 border-2 border-white/10 rounded-xl text-lg font-bold text-white focus:border-fuchsia-500 outline-none transition-all font-cyber tracking-wide" placeholder="E.g., Faith Mbatia" />
+                </div>
+                
+                <div class="relative">
+                    <label class="absolute -top-2 left-4 px-2 bg-[#0d0623] text-[10px] font-cyber font-black text-cyan-400 uppercase tracking-widest border border-cyan-500/30 rounded">Network Comms Email</label>
+                    <input type="email" id="auth-email" class="w-full p-4 bg-black/60 border-2 border-white/10 rounded-xl text-lg font-bold text-white focus:border-cyan-400 outline-none transition-all tracking-wide" placeholder="name@network.com" />
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="relative">
+                        <label class="absolute -top-2 left-4 px-2 bg-[#0d0623] text-[10px] font-cyber font-black text-emerald-400 uppercase tracking-widest border border-emerald-500/30 rounded">Sovereign Zone</label>
+                        <select id="auth-country" onchange="adaptCurrency()" class="w-full p-4 bg-black border-2 border-white/10 rounded-xl text-sm font-black text-yellow-300 focus:border-emerald-500 outline-none appearance-none">
+                            <option value="NG">NIGERIA (NGN)</option>
+                            <option value="KE">KENYA (KES)</option>
+                            <option value="US">GLOBAL (USD)</option>
+                        </select>
+                    </div>
+                    <div class="relative">
+                        <label class="absolute -top-2 left-4 px-2 bg-[#0d0623] text-[10px] font-cyber font-black text-slate-400 uppercase tracking-widest border border-white/10 rounded">Asset Unit</label>
+                        <select id="auth-currency" class="w-full p-4 bg-black/40 border-2 border-white/10 rounded-xl text-sm font-black text-slate-400 outline-none appearance-none" disabled>
+                            <option value="NGN">NGN (₦)</option>
+                            <option value="KES">KES (KSh)</option>
+                            <option value="USD">USD ($)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button onclick="executeLogin()" class="w-full py-5 mt-4 rounded-xl bg-gradient-to-r from-cyan-500 via-purple-600 to-pink-600 text-white font-cyber font-black text-sm uppercase tracking-[0.25em] shadow-[0_0_30px_rgba(0,240,255,0.4)] hover:shadow-[0_0_50px_rgba(0,240,255,0.7)] hover:scale-[1.01] transition-all border border-cyan-300/40">
+                    CONNECT NEURAL CORE
+                </button>
             </div>
         </div>
     </section>
 
-    <header class="sticky top-0 z-40 bg-[#020308]/90 backdrop-blur-xl border-b border-cyan-500/20 px-4 py-3 flex items-center justify-between">
-        <h2 class="text-xl font-cyber font-black tracking-widest text-white leading-none">LUCKY<span class="text-fuchsia-500">TRADE</span></h2>
-        <div class="flex items-center p-1 bg-[#0a0d1c] border border-white/10 rounded-xl">
-            <button onclick="toggleMode('demo')" id="btn-demo" class="px-4 py-1 rounded-lg text-xs font-black uppercase bg-cyan-500/20 text-cyan-400 border border-cyan-500/50">Demo</button>
-            <button onclick="toggleMode('real')" id="btn-real" class="px-4 py-1 rounded-lg text-xs font-black uppercase text-slate-500">Real</button>
+    <header class="sticky top-0 z-40 bg-[#04010c]/85 backdrop-blur-xl border-b-2 border-cyan-500/30 px-4 py-4 flex items-center justify-between">
+        <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 rounded-xl bg-black border border-pink-500 flex items-center justify-center shadow-[0_0_15px_rgba(255,0,127,0.4)] animate-pulse">
+                <i data-lucide="orbit" class="w-6 h-6 text-pink-500"></i>
+            </div>
+            <div>
+                <h2 class="text-xl font-cyber font-black tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-300 to-fuchsia-400 leading-none">LUCKY<span class="text-yellow-300 font-bold font-sans">TRADE</span></h2>
+                <div class="flex items-center mt-1.5">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping mr-2 shadow-[0_0_8px_#39ff14]"></span>
+                    <span class="text-[9px] font-cyber font-black text-emerald-400 uppercase tracking-widest">GRID LINK ACTIVE</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex items-center p-1 bg-black/80 border border-white/10 rounded-xl shadow-[inner_0_2px_8px_rgba(0,0,0,0.8)]">
+            <button onclick="toggleMode('demo')" id="btn-demo" class="px-4 py-1.5 rounded-lg text-xs font-cyber font-black uppercase tracking-wider bg-cyan-500/20 text-cyan-400 border border-cyan-400/40 shadow-[0_0_12px_rgba(0,240,255,0.2)] transition-all">DEMO</button>
+            <button onclick="toggleMode('real')" id="btn-real" class="px-4 py-1.5 rounded-lg text-xs font-cyber font-black uppercase tracking-wider text-purple-400 hover:text-white transition-all">REAL</button>
         </div>
     </header>
 
-    <div id="toast-container" class="fixed top-20 left-1/2 -translate-x-1/2 z-[200] flex flex-col space-y-2 pointer-events-none w-11/12 max-w-sm"></div>
+    <div id="toast-container" class="fixed top-24 left-1/2 -translate-x-1/2 z-[200] flex flex-col space-y-2 pointer-events-none w-11/12 max-w-sm"></div>
 
     <main class="max-w-md mx-auto p-4 space-y-6 relative z-10">
 
         <section id="view-dashboard" class="app-view space-y-6 view-active">
-            <div class="p-8 rounded-[2rem] bg-gradient-to-br from-[#0a0f24] to-[#1a0b26] border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] text-center">
-                <p id="label-balance-mode" class="text-xs font-cyber font-bold text-cyan-400 uppercase tracking-[0.2em] mb-2">Simulated Equity</p>
-                <h1 class="text-5xl font-black text-white" id="dash-balance">$10,000.00</h1>
+            <div class="p-8 rounded-[2.5rem] bg-gradient-to-br from-[#0c0426] via-[#04010a] to-[#210226] border-2 border-white/10 relative overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.8)]">
+                <div class="absolute top-0 right-0 w-48 h-48 bg-cyan-500/10 rounded-full blur-[50px]"></div>
+                <div class="absolute bottom-0 left-0 w-48 h-48 bg-pink-500/10 rounded-full blur-[50px]"></div>
+                
+                <div class="relative z-10 text-center space-y-2">
+                    <p id="label-balance-mode" class="text-xs font-cyber font-black text-cyan-400 uppercase tracking-[0.25em] drop-shadow-[0_0_5px_#00f0ff]">SIMULATED NODE EQUITY</p>
+                    <h1 class="text-5xl font-cyber font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white via-yellow-200 to-yellow-400 drop-shadow-[0_0_15px_rgba(255,240,0,0.4)]" id="dash-balance">$10,000.00</h1>
+                    
+                    <div class="flex justify-center items-center space-x-4 pt-6 mt-6 border-t border-white/10">
+                        <div>
+                            <span class="text-[10px] font-cyber font-black text-purple-400 uppercase tracking-widest block">LIQUID RESERVE</span>
+                            <span class="text-base font-bold text-emerald-400 block mt-0.5 glow-green" id="dash-margin">$10,000.00</span>
+                        </div>
+                        <div class="w-[2px] h-10 bg-gradient-to-b from-cyan-500 to-pink-500 rounded"></div>
+                        <div>
+                            <span class="text-[10px] font-cyber font-black text-purple-400 uppercase tracking-widest block">SESSION GAIN</span>
+                            <span class="text-base font-bold text-fuchsia-400 block mt-0.5 glow-pink" id="dash-pnl">+$0.00</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            
+
+            <div class="p-4 rounded-2xl bg-[#0a0421]/90 backdrop-blur-md border border-cyan-500/30 flex items-center justify-between shadow-xl">
+                <div class="flex items-center space-x-4">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-yellow-400 to-pink-500 p-[2px] shadow-[0_0_15px_rgba(234,179,8,0.3)]">
+                        <div class="w-full h-full bg-black rounded-xl flex items-center justify-center text-xl font-cyber font-black text-yellow-300" id="profile-icon">?</div>
+                    </div>
+                    <div>
+                        <h4 class="text-sm font-cyber font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-300 uppercase tracking-wider" id="profile-name">SECURE OPERATOR</h4>
+                        <p class="text-[10px] font-cyber font-black text-fuchsia-400 tracking-widest mt-0.5" id="profile-meta">CONNECTING UNIT...</p>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <span id="badge-verification" class="text-[9px] font-cyber font-black px-3 py-1 rounded-md bg-pink-500/20 text-pink-400 border border-pink-500/40 uppercase tracking-widest">LIVE SYNCED</span>
+                </div>
+            </div>
+
             <div class="grid grid-cols-2 gap-4">
-                <button onclick="nav('deposit')" class="py-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/50 text-emerald-400 font-black uppercase tracking-widest flex flex-col items-center justify-center shadow-[0_0_20px_rgba(16,185,129,0.2)]">
-                    <i data-lucide="arrow-down-circle" class="w-8 h-8 mb-2"></i> DEPOSIT
+                <button onclick="nav('deposit')" class="group p-6 rounded-2xl bg-gradient-to-br from-black to-[#061c12] border border-emerald-500/40 text-left relative overflow-hidden transition-all hover:scale-[1.02] shadow-lg">
+                    <div class="absolute top-0 right-0 p-3 text-emerald-500/20 group-hover:text-emerald-400/40 transition-colors"><i data-lucide="hard-drive-download" class="w-12 h-12"></i></div>
+                    <span class="text-[10px] font-cyber font-black text-emerald-400 tracking-widest block mb-1">INFLOW MODULE</span>
+                    <span class="text-xl font-black text-white block tracking-wide">DEPOSIT CARD</span>
                 </button>
-                <button onclick="nav('withdraw')" class="py-4 rounded-2xl bg-rose-500/10 border border-rose-500/50 text-rose-400 font-black uppercase tracking-widest flex flex-col items-center justify-center shadow-[0_0_20px_rgba(244,63,94,0.2)]">
-                    <i data-lucide="arrow-up-circle" class="w-8 h-8 mb-2"></i> WITHDRAW
+                <button onclick="nav('withdraw')" class="group p-6 rounded-2xl bg-gradient-to-br from-black to-[#210813] border border-pink-500/40 text-left relative overflow-hidden transition-all hover:scale-[1.02] shadow-lg">
+                    <div class="absolute top-0 right-0 p-3 text-pink-500/20 group-hover:text-pink-400/40 transition-colors"><i data-lucide="hard-drive-upload" class="w-12 h-12"></i></div>
+                    <span class="text-[10px] font-cyber font-black text-pink-400 tracking-widest block mb-1">OUTFLOW MATRIX</span>
+                    <span class="text-xl font-black text-white block tracking-wide">WITHDRAWAL</span>
                 </button>
             </div>
         </section>
 
         <section id="view-markets" class="app-view space-y-4 hidden">
-            <h2 class="text-xs font-cyber font-black uppercase text-cyan-400 border-b border-cyan-500/20 pb-2">Live Assets</h2>
-            <div id="market-list" class="space-y-3"></div>
+            <h2 class="text-xs font-cyber font-black uppercase text-cyan-400 tracking-[0.2em] flex items-center border-b border-cyan-500/20 pb-2">
+                <i data-lucide="network" class="w-4 h-4 mr-2 text-pink-500 animate-spin"></i> LIVE LIQUIDITY ASSYMETRICS
+            </h2>
+            <div id="market-list" class="space-y-3">
+                </div>
         </section>
 
         <section id="view-charts" class="app-view space-y-4 hidden">
             
-            <div class="p-3 rounded-2xl bg-gradient-to-r from-cyan-900/30 to-blue-900/30 border border-cyan-500/50 flex justify-between items-center relative shadow-[0_0_20px_rgba(34,211,238,0.2)]">
-                <div class="absolute inset-y-0 left-3 flex items-center pointer-events-none">
-                    <i data-lucide="activity" class="w-5 h-5 text-cyan-400 animate-pulse"></i>
-                </div>
-                <select id="chart-asset" onchange="changeAsset()" class="w-full bg-transparent text-2xl font-black text-white pl-10 focus:outline-none cursor-pointer appearance-none uppercase tracking-widest">
-                    </select>
-                <div class="text-right shrink-0 pr-2">
-                    <h3 id="chart-price" class="text-2xl font-black text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]">$0.00</h3>
-                </div>
-            </div>
-
-            <div class="p-2 rounded-3xl bg-[#04060d] border border-white/10 relative shadow-[0_0_30px_rgba(0,0,0,0.8)]">
-                <div class="flex justify-between items-center px-2 mb-1">
-                    <span class="text-[10px] font-cyber text-slate-500 uppercase">View Mode</span>
-                    <div class="flex space-x-1 bg-black p-1 rounded-lg">
-                        <button onclick="setChartType('candlestick')" class="px-2 py-1 text-[9px] font-black uppercase rounded bg-cyan-500/20 text-cyan-400 border border-cyan-500/30">Candle</button>
-                        <button onclick="setChartType('line')" class="px-2 py-1 text-[9px] font-black uppercase rounded text-slate-400">Line</button>
+            <div class="p-4 rounded-2xl bg-gradient-to-r from-[#0d072b] to-[#1a0526] border-2 border-cyan-400 shadow-[0_0_20px_rgba(0,240,255,0.2)] flex justify-between items-center relative">
+                <div class="flex items-center space-x-2">
+                    <div class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></div>
+                    <div>
+                        <span class="text-[9px] font-cyber font-black text-fuchsia-400 tracking-widest block uppercase">TARGET ASSET STREAM</span>
+                        <select id="chart-asset" onchange="changeAsset()" class="bg-transparent text-2xl font-cyber font-black text-white focus:outline-none cursor-pointer appearance-none uppercase tracking-widest">
+                            </select>
                     </div>
                 </div>
-                <div id="apex-chart-container" class="w-full h-[320px]"></div>
+                <div class="text-right">
+                    <span class="text-[9px] font-cyber font-black text-yellow-300 tracking-widest block uppercase">MATRIX INDEX PRICE</span>
+                    <h3 id="chart-price" class="text-3xl font-cyber font-black text-white tracking-tighter glow-cyan">$0.00</h3>
+                </div>
             </div>
 
-            <div class="p-5 rounded-3xl bg-[#0a0d1c] border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.8)] space-y-4">
+            <div class="p-3 rounded-3xl bg-[#04010b] border-2 border-white/5 relative shadow-[0_0_40px_rgba(0,0,0,0.9)]">
+                <div class="flex justify-between items-center px-2 mb-3">
+                    <span class="text-[10px] font-cyber font-black text-purple-400 uppercase tracking-widest">VISUAL RENDERING MODE</span>
+                    <div class="flex space-x-1 bg-black p-1 rounded-xl border border-white/10">
+                        <button onclick="setChartType('candlestick')" id="btn-chart-candlestick" class="px-3 py-1 text-[10px] font-cyber font-black uppercase rounded-lg bg-cyan-500/20 text-cyan-400 border border-cyan-400/40 shadow-md">CANDLE</button>
+                        <button onclick="setChartType('line')" id="btn-chart-line" class="px-3 py-1 text-[10px] font-cyber font-black uppercase rounded-lg text-slate-500 hover:text-white transition-all">LINE</button>
+                    </div>
+                </div>
+                
+                <div id="apex-chart-container" class="w-full h-[330px]"></div>
+            </div>
+
+            <div class="p-6 rounded-[2rem] bg-gradient-to-b from-[#0e062b] to-[#04010a] border border-white/10 shadow-2xl space-y-5">
                 
                 <div class="grid grid-cols-2 gap-4">
                     <div>
-                        <label class="text-[10px] font-cyber font-black text-cyan-400 uppercase tracking-widest mb-1 block">Trade Amount</label>
-                        <div class="relative bg-black rounded-xl border border-white/20 p-1 flex items-center">
-                            <span class="text-slate-400 font-bold px-2" id="trade-sym">$</span>
-                            <input type="number" id="trade-size" value="10" class="w-full bg-transparent text-xl font-black text-white outline-none" />
+                        <label class="text-[10px] font-cyber font-black text-cyan-400 uppercase tracking-[0.15em] mb-1.5 block">STAKE SIZE AMOUNT</label>
+                        <div class="relative bg-black/80 rounded-xl border-2 border-cyan-500/30 p-2 flex items-center shadow-inner">
+                            <span class="text-yellow-300 font-cyber font-black text-lg px-2" id="trade-sym">$</span>
+                            <input type="number" id="trade-size" value="50" class="w-full bg-transparent text-xl font-cyber font-black text-white outline-none focus:text-cyan-300 transition-colors" />
                         </div>
                     </div>
                     
                     <div>
-                        <label class="text-[10px] font-cyber font-black text-fuchsia-400 uppercase tracking-widest mb-1 block">Expiration Time</label>
-                        <div class="relative bg-black rounded-xl border border-white/20 p-1">
-                            <select id="trade-time" class="w-full bg-transparent text-xl font-black text-white outline-none cursor-pointer appearance-none pl-2">
-                                <option value="5000">5 Seconds</option>
-                                <option value="15000">15 Seconds</option>
-                                <option value="60000">1 Minute</option>
-                                <option value="300000">5 Minutes</option>
-                                <option value="3600000">1 Hour</option>
-                                <option value="7200000">2 Hours</option>
+                        <label class="text-[10px] font-cyber font-black text-fuchsia-400 uppercase tracking-[0.15em] mb-1.5 block">QUANTUM LOCK HORIZON</label>
+                        <div class="relative bg-black/80 rounded-xl border-2 border-fuchsia-500/30 p-2 flex items-center shadow-inner">
+                            <i data-lucide="timer" class="w-5 h-5 text-fuchsia-400 mr-1.5 shrink-0 animate-pulse"></i>
+                            <select id="trade-time" class="w-full bg-transparent text-base font-cyber font-black text-white outline-none cursor-pointer appearance-none text-yellow-300">
+                                <option value="5000" class="bg-black">5 SECONDS</option>
+                                <option value="15000" class="bg-black">15 SECONDS</option>
+                                <option value="30000" class="bg-black">30 SECONDS</option>
+                                <option value="60000" class="bg-black">1 MINUTE</option>
+                                <option value="300000" class="bg-black">5 MINUTES</option>
+                                <option value="3600000 class="bg-black"">1 HOUR</option>
+                                <option value="7200000" class="bg-black">2 HOURS</option>
                             </select>
                         </div>
                     </div>
                 </div>
 
-                <div class="text-center pt-2">
-                    <span class="text-xs font-black text-slate-400 uppercase tracking-widest">Expected Payout: <span class="text-emerald-400">85% Profit</span></span>
+                <div class="flex justify-between items-center bg-black/40 px-4 py-2 rounded-xl border border-white/5">
+                    <span class="text-[10px] font-cyber font-black text-purple-400 tracking-widest uppercase">RISK EVALUATION RATE</span>
+                    <span class="text-sm font-cyber font-black text-emerald-400 tracking-wide drop-shadow-[0_0_5px_#39ff14]">PROFIT YIELD +90%</span>
                 </div>
                 
-                <div class="grid grid-cols-2 gap-4 mt-2">
-                    <button onclick="executeTrade('BUY')" class="relative py-6 rounded-2xl bg-gradient-to-t from-emerald-700 to-emerald-400 text-white shadow-[0_0_40px_rgba(16,185,129,0.5)] active:scale-95 transition-all border-2 border-emerald-300">
-                        <div class="flex flex-col items-center">
-                            <i data-lucide="chevrons-up" class="w-10 h-10 mb-1 drop-shadow-[0_0_10px_rgba(255,255,255,1)]"></i>
-                            <span class="text-3xl font-black uppercase tracking-widest drop-shadow-md">BUY</span>
+                <div class="grid grid-cols-2 gap-4 pt-1">
+                    <button onclick="executeTrade('BUY')" class="relative py-6 rounded-2xl bg-gradient-to-t from-emerald-800 via-emerald-600 to-teal-400 text-white shadow-[0_0_40px_rgba(57,255,20,0.4)] active:scale-95 transition-all border-2 border-emerald-300/60 overflow-hidden group">
+                        <div class="absolute inset-0 bg-white/20 -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
+                        <div class="flex flex-col items-center relative z-10">
+                            <i data-lucide="chevron-up-square" class="w-12 h-12 mb-1 drop-shadow-[0_0_12px_#fff]"></i>
+                            <span class="text-3xl font-cyber font-black tracking-widest drop-shadow-md">BUY LONG</span>
                         </div>
                     </button>
                     
-                    <button onclick="executeTrade('SELL')" class="relative py-6 rounded-2xl bg-gradient-to-t from-rose-700 to-rose-500 text-white shadow-[0_0_40px_rgba(244,63,94,0.5)] active:scale-95 transition-all border-2 border-rose-300">
-                        <div class="flex flex-col items-center">
-                            <i data-lucide="chevrons-down" class="w-10 h-10 mb-1 drop-shadow-[0_0_10px_rgba(255,255,255,1)]"></i>
-                            <span class="text-3xl font-black uppercase tracking-widest drop-shadow-md">SELL</span>
+                    <button onclick="executeTrade('SELL')" class="relative py-6 rounded-2xl bg-gradient-to-t from-pink-800 via-pink-600 to-fuchsia-400 text-white shadow-[0_0_40px_rgba(255,0,127,0.4)] active:scale-95 transition-all border-2 border-pink-300/60 overflow-hidden group">
+                        <div class="absolute inset-0 bg-white/20 -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
+                        <div class="flex flex-col items-center relative z-10">
+                            <i data-lucide="chevron-down-square" class="w-12 h-12 mb-1 drop-shadow-[0_0_12px_#fff]"></i>
+                            <span class="text-3xl font-cyber font-black tracking-widest drop-shadow-md">SELL SHORT</span>
                         </div>
                     </button>
                 </div>
@@ -157,333 +279,479 @@
         </section>
 
         <section id="view-deposit" class="app-view space-y-6 hidden">
-            <div class="p-6 rounded-3xl bg-[#0a0d1c] border border-emerald-500/30 shadow-[0_0_40px_rgba(16,185,129,0.2)]">
-                <h2 class="text-xl font-cyber font-black text-emerald-400 uppercase tracking-widest text-center mb-6">Fund Account</h2>
-                <div>
-                    <label class="text-xs font-black text-slate-400 uppercase tracking-widest block mb-3">Amount (Min $5 USD Eqv.)</label>
-                    <div class="relative">
-                        <span id="dep-sym" class="absolute left-5 top-1/2 -translate-y-1/2 text-2xl font-black text-emerald-500">$</span>
-                        <input type="number" id="dep-amt" placeholder="5.00" class="w-full p-6 pl-14 bg-black border-2 border-emerald-500/30 rounded-2xl text-4xl font-black text-white focus:border-emerald-400 outline-none" />
+            <div class="p-6 rounded-3xl bg-gradient-to-br from-[#04160f] to-black border-2 border-emerald-500/50 shadow-[0_0_40px_rgba(57,255,20,0.15)]">
+                <h2 class="text-xl font-cyber font-black text-emerald-400 uppercase tracking-widest text-center mb-6 drop-shadow-[0_0_8px_#39ff14]">LIQUIDITY CAPITAL EXTRACTION</h2>
+                
+                <div class="space-y-4">
+                    <div>
+                        <label class="text-xs font-cyber font-black text-purple-300 uppercase tracking-widest block mb-2">AMOUNT TO ALLOCATE (MINIMUM $5 USD VALUE)</label>
+                        <div class="relative">
+                            <span id="dep-sym" class="absolute left-5 top-1/2 -translate-y-1/2 text-2xl font-cyber font-black text-emerald-400">$</span>
+                            <input type="number" id="dep-amt" placeholder="5.00" class="w-full p-6 pl-14 bg-black border-2 border-emerald-500/30 rounded-2xl text-4xl font-cyber font-black text-white focus:border-emerald-400 outline-none transition-all shadow-inner" />
+                        </div>
                     </div>
+                    
+                    <div class="p-4 bg-black/60 rounded-xl border border-white/10 space-y-1">
+                        <span class="text-[10px] font-cyber font-black text-yellow-300 block uppercase">GATEWAY COMPLIANCE VERIFICATION</span>
+                        <p class="text-[11px] text-slate-400 leading-normal uppercase">System active over Paystack core infrastructure networks. Local dynamic currencies auto-converted instantly via decentralized baseline matrix values.</p>
+                    </div>
+
+                    <button onclick="launchPaystack()" class="w-full py-5 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-400 text-black font-cyber font-black text-lg uppercase tracking-[0.2em] shadow-[0_0_35px_rgba(57,255,20,0.5)] transition-transform active:scale-98">
+                        ENGAGE PAYSTACK LINK
+                    </button>
                 </div>
-                <button onclick="launchPaystack()" class="w-full py-5 mt-6 rounded-2xl bg-emerald-500 text-black font-black text-xl uppercase tracking-widest shadow-[0_0_30px_rgba(16,185,129,0.5)]">
-                    Proceed to Paystack
-                </button>
             </div>
         </section>
 
         <section id="view-withdraw" class="app-view space-y-6 hidden">
-            <div class="p-6 rounded-3xl bg-[#0a0d1c] border border-rose-500/30 shadow-[0_0_40px_rgba(244,63,94,0.2)] space-y-5">
-                <h2 class="text-xl font-cyber font-black text-rose-400 uppercase tracking-widest text-center">Withdraw Funds</h2>
+            <div class="p-6 rounded-3xl bg-gradient-to-br from-[#1c0411] to-black border-2 border-pink-500/50 shadow-[0_0_40px_rgba(255,0,127,0.15)] space-y-5">
+                <h2 class="text-xl font-cyber font-black text-pink-500 uppercase tracking-widest text-center drop-shadow-[0_0_8px_#ff007f]">SECURE CAPITAL REFUND MATRICES</h2>
                 
-                <div>
-                    <label class="text-xs font-black text-slate-400 uppercase tracking-widest block mb-1">Amount to Withdraw</label>
-                    <input type="number" id="with-amt" placeholder="0.00" class="w-full p-4 bg-black border border-white/10 rounded-xl text-xl font-black text-white outline-none" />
-                </div>
+                <div class="space-y-4">
+                    <div>
+                        <label class="text-xs font-cyber font-black text-purple-300 uppercase tracking-widest block mb-1.5">LIQUIDATION VALUE AMOUNT</label>
+                        <input type="number" id="with-amt" placeholder="0.00" class="w-full p-4 bg-black border-2 border-white/10 rounded-xl text-xl font-cyber font-black text-white outline-none focus:border-pink-500 transition-colors" />
+                    </div>
 
-                <div>
-                    <label class="text-xs font-black text-slate-400 uppercase tracking-widest block mb-1">Payout Method</label>
-                    <select id="with-method" class="w-full p-4 bg-black border border-white/10 rounded-xl text-lg font-bold text-white outline-none focus:border-rose-400">
-                        <option value="mpesa">Mobile Money (M-Pesa / Momo)</option>
-                        <option value="bank">Local Bank Transfer</option>
-                        <option value="crypto">Crypto Wallet (USDT TRC-20)</option>
-                        <option value="paypal">PayPal</option>
-                    </select>
-                </div>
+                    <div>
+                        <label class="text-xs font-cyber font-black text-purple-300 uppercase tracking-widest block mb-1.5">OUTFLOW RECIPIENT NODE LAYER</label>
+                        <select id="with-method" class="w-full p-4 bg-black border-2 border-white/10 rounded-xl text-md font-cyber font-black text-yellow-300 outline-none focus:border-pink-500">
+                            <option value="mpesa" class="bg-black">MOBILE MONEY NETWORK (M-PESA / AIRTEL / MTNC)</option>
+                            <option value="bank" class="bg-black">COMMERCIAL LIQUID BANK TRANSFER</option>
+                            <option value="crypto" class="bg-black">DECENTRALIZED WALLET CORE (USDT TRC-20 LAYER)</option>
+                            <option value="paypal" class="bg-black">GLOBAL PAYPAL DIGITAL VAULT</option>
+                        </select>
+                    </div>
 
-                <div>
-                    <label class="text-xs font-black text-slate-400 uppercase tracking-widest block mb-1">Destination Details</label>
-                    <input type="text" id="with-dest" placeholder="Phone #, Account #, or Wallet Address" class="w-full p-4 bg-black border border-white/10 rounded-xl text-lg font-bold text-white outline-none" />
-                </div>
+                    <div>
+                        <label class="text-xs font-cyber font-black text-purple-300 uppercase tracking-widest block mb-1.5">DESTINATION ROUTING IDENTIFIER</label>
+                        <input type="text" id="with-dest" placeholder="Wallet hash, IBAN code, or network identifier cell number" class="w-full p-4 bg-black border-2 border-white/10 rounded-xl text-sm font-cyber font-black text-white outline-none focus:border-pink-500 transition-all" />
+                    </div>
 
-                <button onclick="requestWithdraw()" class="w-full py-5 rounded-2xl bg-rose-500 text-black font-black text-xl uppercase tracking-widest shadow-[0_0_30px_rgba(244,63,94,0.5)]">
-                    Submit Request
-                </button>
+                    <button onclick="requestWithdraw()" class="w-full py-5 rounded-2xl bg-gradient-to-r from-pink-500 to-fuchsia-600 text-black font-cyber font-black text-lg uppercase tracking-[0.2em] shadow-[0_0_35px_rgba(255,0,127,0.5)] active:scale-98 transition-transform">
+                        INITIALIZE RECOVERY REQUEST
+                    </button>
+                </div>
             </div>
         </section>
         
     </main>
 
-    <nav class="fixed bottom-0 left-0 right-0 z-50 bg-[#020308]/90 backdrop-blur-2xl border-t border-cyan-500/20 p-3 max-w-md mx-auto grid grid-cols-4 gap-2 text-center">
-        <button onclick="nav('dashboard')" id="nav-dashboard" class="flex flex-col items-center justify-center p-2 rounded-xl text-cyan-400 bg-cyan-500/10"><i data-lucide="layout-grid" class="w-6 h-6 mb-1"></i><span class="text-[9px] font-cyber font-black uppercase">Core</span></button>
-        <button onclick="nav('markets')" id="nav-markets" class="flex flex-col items-center justify-center p-2 rounded-xl text-slate-500"><i data-lucide="activity" class="w-6 h-6 mb-1"></i><span class="text-[9px] font-cyber font-black uppercase">Markets</span></button>
-        <button onclick="nav('charts')" id="nav-charts" class="flex flex-col items-center justify-center p-2 rounded-xl text-slate-500"><i data-lucide="bar-chart-2" class="w-6 h-6 mb-1"></i><span class="text-[9px] font-cyber font-black uppercase">Trade</span></button>
-        <button onclick="nav('withdraw')" id="nav-withdraw" class="flex flex-col items-center justify-center p-2 rounded-xl text-slate-500"><i data-lucide="wallet" class="w-6 h-6 mb-1"></i><span class="text-[9px] font-cyber font-black uppercase">Wallet</span></button>
+    <nav class="fixed bottom-0 left-0 right-0 z-50 bg-[#04010b]/95 backdrop-blur-3xl border-t-2 border-cyan-500/30 p-3 max-w-md mx-auto grid grid-cols-4 gap-2 text-center shadow-[0_-15px_40px_rgba(0,0,0,0.9)]">
+        <button onclick="nav('dashboard')" id="nav-dashboard" class="flex flex-col items-center justify-center p-2 rounded-xl text-cyan-400 bg-cyan-500/10 border border-cyan-400/30"><i data-lucide="layers" class="w-6 h-6 mb-1"></i><span class="text-[9px] font-cyber font-black uppercase tracking-wider">SHELL</span></button>
+        <button onclick="nav('markets')" id="nav-markets" class="flex flex-col items-center justify-center p-2 rounded-xl text-slate-500"><i data-lucide="radar" class="w-6 h-6 mb-1"></i><span class="text-[9px] font-cyber font-black uppercase tracking-wider">STREAMS</span></button>
+        <button onclick="nav('charts')" id="nav-charts" class="flex flex-col items-center justify-center p-2 rounded-xl text-slate-500"><i data-lucide="cpu" class="w-6 h-6 mb-1"></i><span class="text-[9px] font-cyber font-black uppercase tracking-wider">TERMINAL</span></button>
+        <button onclick="nav('withdraw')" id="nav-withdraw" class="flex flex-col items-center justify-center p-2 rounded-xl text-slate-500"><i data-lucide="wallet" class="w-6 h-6 mb-1"></i><span class="text-[9px] font-cyber font-black uppercase tracking-wider">VAULT</span></button>
     </nav>
 
     <script>
-        const PK_LIVE = 'pk_live_ebbc4bdc1da0f8fc075bae6ce78da4f9c89552bc';
-        const config = { NG: { cur: 'NGN', sym: '₦', rate: 1500 }, KE: { cur: 'KES', sym: 'KSh', rate: 130 }, US: { cur: 'USD', sym: '$', rate: 1 } };
+        // --- PAYSTACK AUTHORIZED KEYSETS ---
+        const PUBLIC_LIVE_KEY = 'pk_live_ebbc4bdc1da0f8fc075bae6ce78da4f9c89552bc';
+        
+        // --- GEOGRAPHIC NETWORK MULTIPLIERS ---
+        const configMatrix = { 
+            NG: { currencyCode: 'NGN', currencySymbol: '₦', exchangeRate: 1500 }, 
+            KE: { currencyCode: 'KES', currencySymbol: 'KSh', exchangeRate: 130 }, 
+            US: { currencyCode: 'USD', currencySymbol: '$', exchangeRate: 1 } 
+        };
 
-        const state = {
-            user: { name: '', email: '', country: 'NG', cur: 'NGN' },
-            mode: 'demo', bal: { demo: 10000, real: 0 },
-            focus: 'BTC/USD', activeTrades: [],
-            assets: {
-                'BTC/USD': { price: 68500, data: [] }, 'ETH/USD': { price: 3500, data: [] },
-                'EUR/USD': { price: 1.08, data: [] }, 'GBP/USD': { price: 1.25, data: [] }
+        // --- CORE APPLICATION DATABANK MATRIX STATE ---
+        const appState = {
+            userAccount: { name: '', email: '', geographicZone: 'NG', activeCurrency: 'NGN' },
+            operationalMode: 'demo', 
+            accountBalance: { demo: 10000, real: 0 },
+            focusAssetKey: 'BTC/USD', 
+            activeTerminalTrades: [],
+            marketAssets: {
+                'BTC/USD': { numericalPrice: 68500, structuralHistory: [] }, 
+                'ETH/USD': { numericalPrice: 3500, structuralHistory: [] },
+                'SOL/USD': { numericalPrice: 145, structuralHistory: [] }, 
+                'EUR/USD': { numericalPrice: 1.0820, structuralHistory: [] }
             }
         };
 
-        // UI Toast System
-        function showToast(msg, type='success') {
-            const t = document.createElement('div');
-            const color = type === 'success' ? 'bg-emerald-500' : (type === 'error' ? 'bg-rose-500' : 'bg-cyan-500');
-            t.className = `${color} text-black font-black p-4 rounded-xl shadow-2xl transform transition-all duration-300 translate-y-[-20px] opacity-0 flex items-center justify-between uppercase tracking-widest text-sm`;
-            t.innerHTML = `<span>${msg}</span>`;
-            document.getElementById('toast-container').appendChild(t);
-            setTimeout(() => { t.classList.remove('translate-y-[-20px]', 'opacity-0'); }, 10);
-            setTimeout(() => { t.classList.add('opacity-0'); setTimeout(()=>t.remove(), 300); }, 3000);
+        // --- ADVANCED MESSAGING LOGIC ENGINE ---
+        function showToast(messageText, notificationType='success') {
+            const containerNode = document.getElementById('toast-container');
+            const alertElement = document.createElement('div');
+            const colorMapping = notificationType === 'success' ? 'bg-gradient-to-r from-emerald-500 to-teal-600' : (notificationType === 'error' ? 'bg-gradient-to-r from-pink-600 to-red-600' : 'bg-gradient-to-r from-cyan-500 to-blue-600');
+            
+            alertElement.className = `${colorMapping} text-black font-cyber font-black p-4 rounded-xl shadow-[0_0_25px_rgba(0,0,0,0.5)] border border-white/20 transform transition-all duration-300 translate-y-[-20px] opacity-0 flex items-center justify-between uppercase tracking-widest text-xs`;
+            alertElement.innerHTML = `<span>${messageText}</span>`;
+            containerNode.appendChild(alertElement);
+            
+            setTimeout(() => { alertElement.classList.remove('translate-y-[-20px]', 'opacity-0'); }, 10);
+            setTimeout(() => { alertElement.classList.add('opacity-0'); setTimeout(()=>alertElement.remove(), 300); }, 3500);
         }
 
-        // Generate Chart Data
-        function generateData(base) {
-            let d = [], curr = base, now = Date.now() - (60 * 60000);
+        // --- DYNAMIC DATA STREAM INJECTION MODULATOR ---
+        function seedMarketData(baselineValue) {
+            let dataArray = [], dynamicCurrent = baselineValue, relativeTimestamp = Date.now() - (60 * 60000);
             for(let i=0; i<60; i++) {
-                let vol = curr * 0.002;
-                let open = curr, close = open + (Math.random() * vol * 2) - vol;
-                let high = Math.max(open, close) + (Math.random() * vol);
-                let low = Math.min(open, close) - (Math.random() * vol);
-                d.push({ x: now, y: [open, high, low, close] });
-                curr = close; now += 60000;
+                let rangeVariance = dynamicCurrent * 0.003;
+                let priceOpen = dynamicCurrent;
+                let priceClose = priceOpen + (Math.random() * rangeVariance * 2) - rangeVariance;
+                let priceHigh = Math.max(priceOpen, priceClose) + (Math.random() * rangeVariance * 0.5);
+                let priceLow = Math.min(priceOpen, priceClose) - (Math.random() * rangeVariance * 0.5);
+                dataArray.push({ x: relativeTimestamp, y: [priceOpen, priceHigh, priceLow, priceClose] });
+                dynamicCurrent = priceClose; 
+                relativeTimestamp += 60000;
             }
-            return d;
+            return dataArray;
         }
 
-        Object.keys(state.assets).forEach(k => {
-            state.assets[k].data = generateData(state.assets[k].price);
-            state.assets[k].price = state.assets[k].data[59].y[3];
+        Object.keys(appState.marketAssets).forEach(assetKey => {
+            appState.marketAssets[assetKey].structuralHistory = seedMarketData(appState.marketAssets[assetKey].numericalPrice);
+            appState.marketAssets[assetKey].numericalPrice = appState.marketAssets[assetKey].structuralHistory[59].y[3];
         });
 
-        // Apex Charts Setup
-        let mainChart;
-        let cType = 'candlestick';
+        // --- APEX CORE CHART ENGINE SPECIFICATION CONFIGURATOR ---
+        let primaryApexChartInstance;
+        let globalChartRenderType = 'candlestick';
 
-        function initChart() {
-            const options = {
-                series: [{ data: state.assets[state.focus].data }],
-                chart: { type: cType, height: 320, background: 'transparent', toolbar: { show: false }, animations: { enabled: true, easing: 'linear', dynamicAnimation: { speed: 500 } } },
-                theme: { mode: 'dark' }, grid: { borderColor: 'rgba(255,255,255,0.05)' },
-                xaxis: { type: 'datetime', labels: { style: { colors: '#64748b' } } },
-                yaxis: { tooltip: { enabled: true }, labels: { style: { colors: '#64748b' }, formatter: v => v.toFixed(2) } },
-                // Ultra glowing powerful candlestick colors
-                plotOptions: { candlestick: { colors: { upward: '#00ffaa', downward: '#ff0055' }, wick: { useFillColor: true } } },
-                annotations: { yaxis: [] } // For trade lines
+        function mountChartEngine() {
+            const chartOptionsConfiguration = {
+                series: [{ data: appState.marketAssets[appState.focusAssetKey].structuralHistory }],
+                chart: { 
+                    type: globalChartRenderType, 
+                    height: 330, 
+                    background: 'transparent', 
+                    toolbar: { show: false }, 
+                    animations: { enabled: true, easing: 'easeinout', dynamicAnimation: { speed: 250 } } 
+                },
+                theme: { mode: 'dark' }, 
+                grid: { borderColor: 'rgba(255,255,255,0.04)' },
+                xaxis: { type: 'datetime', labels: { style: { colors: '#a78bfa', fontFamily: 'Orbitron' } } },
+                yaxis: { tooltip: { enabled: true }, labels: { style: { colors: '#22d3ee', fontFamily: 'Orbitron' }, formatter: val => val.toFixed(2) } },
+                // Highly decorated shining glowing candlestick configuration
+                plotOptions: { 
+                    candlestick: { colors: { upward: '#00ffaa', downward: '#ff007f' }, wick: { useFillColor: true } },
+                    stroke: { width: 2 }
+                },
+                stroke: { curve: 'smooth', width: 3 },
+                colors: ['#00f0ff'],
+                fill: { type: 'gradient', gradient: { shadeIntensity: 1, opacityFrom: 0.6, opacityTo: 0.05 } },
+                annotations: { yaxis: [] } 
             };
-            mainChart = new ApexCharts(document.querySelector("#apex-chart-container"), options);
-            mainChart.render();
+            
+            primaryApexChartInstance = new ApexCharts(document.querySelector("#apex-chart-container"), chartOptionsConfiguration);
+            primaryApexChartInstance.render();
         }
 
         document.addEventListener('DOMContentLoaded', () => {
             lucide.createIcons();
             adaptCurrency();
-            buildMarkets();
-            initChart();
-            setInterval(gameLoop, 500); // Super fast 500ms market updates
+            generateMarketInterfaceRows();
+            mountChartEngine();
+            // Crunched latency down to 300ms for hyper-vibrant continuous ticking
+            setInterval(coreSystemExecutionLoop, 300); 
         });
 
         function adaptCurrency() {
-            state.user.country = document.getElementById('auth-country').value;
-            state.user.cur = config[state.user.country].cur;
+            appState.userAccount.geographicZone = document.getElementById('auth-country').value;
+            appState.userAccount.activeCurrency = configMatrix[appState.userAccount.geographicZone].currencyCode;
+            document.getElementById('auth-currency').value = appState.userAccount.activeCurrency;
         }
 
         function executeLogin() {
-            state.user.name = document.getElementById('auth-name').value || 'Operator';
-            state.user.email = document.getElementById('auth-email').value || 'dev@system.com';
+            appState.userAccount.name = document.getElementById('auth-name').value || 'Sovereign Operator';
+            appState.userAccount.email = document.getElementById('auth-email').value || 'core@hyperion.net';
             adaptCurrency();
             document.getElementById('screen-auth').style.display = 'none';
-            updateBal();
-            showToast('System Initialized', 'info');
+            
+            document.getElementById('profile-name').innerText = appState.userAccount.name.toUpperCase();
+            document.getElementById('profile-meta').innerText = `${appState.userAccount.activeCurrency} CORE NODE`;
+            document.getElementById('profile-icon').innerText = appState.userAccount.name[0].toUpperCase();
+            
+            synchronizeUIVolumeBalances();
+            showToast('NEURAL DESK GRID LINK SUCCESSFUL', 'info');
         }
 
-        function nav(v) {
-            document.querySelectorAll('.app-view').forEach(el => el.classList.add('hidden', 'view-active'));
-            document.getElementById(`view-${v}`).classList.remove('hidden');
-            document.querySelectorAll('nav button').forEach(b => { b.classList.remove('text-cyan-400', 'bg-cyan-500/10'); b.classList.add('text-slate-500'); });
-            const navBtn = document.getElementById(`nav-${v}`);
-            if(navBtn) { navBtn.classList.add('text-cyan-400', 'bg-cyan-500/10'); navBtn.classList.remove('text-slate-500'); }
+        function nav(targetViewKey) {
+            document.querySelectorAll('.app-view').forEach(element => element.classList.add('hidden', 'view-active'));
+            document.getElementById(`view-${targetViewKey}`).classList.remove('hidden');
+            
+            document.querySelectorAll('nav button').forEach(buttonNode => { 
+                buttonNode.className = "flex flex-col items-center justify-center p-2 rounded-xl text-slate-500 transition-all"; 
+            });
+            
+            const activeNavigationButton = document.getElementById(`nav-${targetViewKey}`);
+            if(activeNavigationButton) { 
+                activeNavigationButton.className = "flex flex-col items-center justify-center p-2 rounded-xl text-cyan-400 bg-cyan-500/10 border border-cyan-400/30 shadow-[0_0_15px_rgba(0,240,255,0.2)]"; 
+            }
         }
 
-        function toggleMode(m) {
-            state.mode = m;
-            document.getElementById('btn-demo').className = m==='demo' ? "px-4 py-1 rounded-lg text-xs font-black uppercase bg-cyan-500/20 text-cyan-400 border border-cyan-500/50" : "px-4 py-1 rounded-lg text-xs font-black uppercase text-slate-500";
-            document.getElementById('btn-real').className = m==='real' ? "px-4 py-1 rounded-lg text-xs font-black uppercase bg-emerald-500/20 text-emerald-400 border border-emerald-500/50" : "px-4 py-1 rounded-lg text-xs font-black uppercase text-slate-500";
-            document.getElementById('label-balance-mode').innerText = m==='demo' ? 'Simulated Equity' : 'Real Sovereign Balance';
-            updateBal();
+        function toggleMode(targetModeKey) {
+            appState.operationalMode = targetModeKey;
+            
+            document.getElementById('btn-demo').className = targetModeKey === 'demo' ? "px-4 py-1.5 rounded-lg text-xs font-cyber font-black uppercase tracking-wider bg-cyan-500/20 text-cyan-400 border border-cyan-400/40 shadow-md" : "px-4 py-1.5 rounded-lg text-xs font-cyber font-black uppercase tracking-wider text-purple-500 hover:text-white";
+            document.getElementById('btn-real').className = targetModeKey === 'real' ? "px-4 py-1.5 rounded-lg text-xs font-cyber font-black uppercase tracking-wider bg-gradient-to-r from-emerald-500/20 to-teal-500/20 text-emerald-400 border border-emerald-400/40 shadow-md" : "px-4 py-1.5 rounded-lg text-xs font-cyber font-black uppercase tracking-wider text-purple-500 hover:text-white";
+            
+            document.getElementById('label-balance-mode').innerText = targetModeKey === 'demo' ? 'SIMULATED NODE EQUITY' : 'REAL SOVEREIGN RESERVE VALUE';
+            document.getElementById('label-balance-mode').className = targetModeKey === 'demo' ? 'text-xs font-cyber font-black text-cyan-400 uppercase tracking-[0.25em]' : 'text-xs font-cyber font-black text-yellow-300 uppercase tracking-[0.25em] glow-cyan';
+            
+            synchronizeUIVolumeBalances();
+            showToast(`ALIGNED MODE: ${targetModeKey.toUpperCase()}`, 'info');
         }
 
-        function updateBal() {
-            const c = config[state.user.country];
-            const val = state.bal[state.mode] * c.rate;
-            const str = `${c.sym}${val.toLocaleString(undefined, {minimumFractionDigits:2, maximumFractionDigits:2})}`;
-            document.getElementById('dash-balance').innerText = str;
-            document.getElementById('dep-sym').innerText = c.sym;
-            document.getElementById('trade-sym').innerText = c.sym;
+        function synchronizeUIVolumeBalances() {
+            const targetConfigurationObject = configMatrix[appState.userAccount.geographicZone];
+            const computationalRawValue = appState.accountBalance[appState.operationalMode] * targetConfigurationObject.exchangeRate;
+            const formattedOutputString = `${targetConfigurationObject.currencySymbol}${computationalRawValue.toLocaleString(undefined, {minimumFractionDigits:2, maximumFractionDigits:2})}`;
+            
+            document.getElementById('dash-balance').innerText = formattedOutputString;
+            document.getElementById('dash-margin').innerText = formattedOutputString;
+            document.getElementById('dep-sym').innerText = targetConfigurationObject.currencySymbol;
+            document.getElementById('trade-sym').innerText = targetConfigurationObject.currencySymbol;
         }
 
-        function buildMarkets() {
-            const list = document.getElementById('market-list'), sel = document.getElementById('chart-asset');
-            list.innerHTML = ''; sel.innerHTML = '';
-            Object.keys(state.assets).forEach(k => {
-                sel.innerHTML += `<option value="${k}" class="bg-black">${k}</option>`;
-                list.innerHTML += `<div onclick="document.getElementById('chart-asset').value='${k}'; changeAsset(); nav('charts');" class="flex justify-between items-center p-4 bg-[#0a0d1c] rounded-xl border border-white/5 cursor-pointer">
-                    <span class="font-black text-white text-lg">${k}</span>
-                    <span id="lst-${k.replace('/','')}" class="font-mono font-bold text-white">${state.assets[k].price.toFixed(2)}</span>
+        function generateMarketInterfaceRows() {
+            const catalogContainerNode = document.getElementById('market-list');
+            const selectionDropdownNode = document.getElementById('chart-asset');
+            catalogContainerNode.innerHTML = ''; 
+            selectionDropdownNode.innerHTML = '';
+            
+            Object.keys(appState.marketAssets).forEach(assetKey => {
+                selectionDropdownNode.innerHTML += `<option value="${assetKey}" class="bg-[#0b0521] text-yellow-300 font-cyber font-bold">${assetKey}</option>`;
+                
+                catalogContainerNode.innerHTML += `
+                <div onclick="document.getElementById('chart-asset').value='${assetKey}'; changeAsset(); nav('charts');" class="flex justify-between items-center p-4 bg-gradient-to-r from-[#0c0524] to-[#04010a] rounded-xl border-2 border-white/5 cursor-pointer hover:border-cyan-400/50 transition-all shadow-md group">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-lg bg-black border border-white/10 flex items-center justify-center font-cyber">
+                            <span class="text-xs font-black text-fuchsia-400 group-hover:text-cyan-400 transition-colors">${assetKey.split('/')[0]}</span>
+                        </div>
+                        <h4 class="text-lg font-cyber font-black text-white tracking-widest">${assetKey}</h4>
+                    </div>
+                    <div class="text-right">
+                        <h5 id="list-price-${assetKey.replace('/','')}" class="text-xl font-mono font-black text-yellow-300">0.00</h5>
+                        <span class="text-[9px] font-cyber font-black text-cyan-400 bg-cyan-500/10 px-2 py-0.5 rounded border border-cyan-400/20 uppercase tracking-widest">REALTIME STREAM</span>
+                    </div>
                 </div>`;
             });
             changeAsset();
         }
 
         function changeAsset() {
-            state.focus = document.getElementById('chart-asset').value;
-            document.getElementById('chart-price').innerText = `$${state.assets[state.focus].price.toFixed(2)}`;
-            if(mainChart) mainChart.updateSeries([{ data: state.assets[state.focus].data }]);
-            // Clear annotations when switching
-            mainChart.clearAnnotations();
-            state.activeTrades = state.activeTrades.filter(t => t.asset !== state.focus); // Hide trades of other assets from view logic (simplified)
+            appState.focusAssetKey = document.getElementById('chart-asset').value;
+            const focusedAssetObject = appState.marketAssets[appState.focusAssetKey];
+            document.getElementById('chart-price').innerText = `$${focusedAssetObject.numericalPrice.toFixed(2)}`;
+            
+            if(primaryApexChartInstance) {
+                primaryApexChartInstance.updateSeries([{ data: parseDataFormatScope(globalChartRenderType, focusedAssetObject.structuralHistory) }]);
+                primaryApexChartInstance.clearAnnotations();
+            }
         }
 
-        function setChartType(t) {
-            cType = t;
-            mainChart.updateOptions({ chart: { type: t } });
+        function setChartType(targetRenderType) {
+            globalChartRenderType = targetRenderType;
+            
+            document.getElementById('btn-chart-candlestick').className = targetRenderType === 'candlestick' ? "px-3 py-1 text-[10px] font-cyber font-black uppercase rounded-lg bg-cyan-500/20 text-cyan-400 border border-cyan-400/40 shadow-md" : "px-3 py-1 text-[10px] font-cyber font-black uppercase rounded-lg text-slate-500 hover:text-white";
+            document.getElementById('btn-chart-line').className = targetRenderType === 'line' ? "px-3 py-1 text-[10px] font-cyber font-black uppercase rounded-lg bg-cyan-500/20 text-cyan-400 border border-cyan-400/40 shadow-md" : "px-3 py-1 text-[10px] font-cyber font-black uppercase rounded-lg text-slate-500 hover:text-white";
+
+            primaryApexChartInstance.updateOptions({ 
+                chart: { type: targetRenderType },
+                stroke: { width: targetRenderType === 'line' ? 3 : 2 }
+            });
+            
+            const updatedTraceArray = parseDataFormatScope(targetRenderType, appState.marketAssets[appState.focusAssetKey].structuralHistory);
+            primaryApexChartInstance.updateSeries([{ data: updatedTraceArray }]);
         }
 
-        // --- BINARY OPTIONS TRADE LOGIC ---
-        function executeTrade(type) {
-            const amtStr = document.getElementById('trade-size').value;
-            const durationMs = parseInt(document.getElementById('trade-time').value);
+        function parseDataFormatScope(typeFormatKey, sourceDataStream) {
+            if(typeFormatKey === 'candlestick') return sourceDataStream;
+            return sourceDataStream.map(nodeItem => ({ x: nodeItem.x, y: nodeItem.y[3] }));
+        }
+
+        // --- QUANTUM HIGH FREQUENCY OPTIONS TRANSACTION LOGIC ---
+        function executeTrade(tradeDirectionKey) {
+            const rawStakeInputString = document.getElementById('trade-size').value;
+            const tradeLifespanDurationMs = parseInt(document.getElementById('trade-time').value);
             
-            if(!amtStr || parseFloat(amtStr) <= 0) return showToast('Enter valid amount', 'error');
-            const amtUSD = parseFloat(amtStr) / config[state.user.country].rate; // internal logic in USD
-
-            if(amtUSD > state.bal[state.mode]) return showToast('Insufficient Funds', 'error');
-
-            // Deduct instantly
-            state.bal[state.mode] -= amtUSD;
-            updateBal();
-
-            const entryPrice = state.assets[state.focus].price;
-            const tradeId = 'trd_' + Date.now();
+            if(!rawStakeInputString || parseFloat(rawStakeInputString) <= 0) {
+                return showToast('INVALID TRANSACTION VALUE AMOUNT', 'error');
+            }
             
-            state.activeTrades.push({
-                id: tradeId, asset: state.focus, type: type,
-                amount: amtUSD, entry: entryPrice, expireAt: Date.now() + durationMs
+            const standardGeographicConfiguration = configMatrix[appState.userAccount.geographicZone];
+            const computationalUSDStakeAmount = parseFloat(rawStakeInputString) / standardGeographicConfiguration.exchangeRate;
+
+            if(computationalUSDStakeAmount > appState.accountBalance[appState.operationalMode]) {
+                return showToast('TERMINAL EXCEEDS AVAILABLE RESERVES', 'error');
+            }
+
+            // Execute instantaneous internal atomic reserve reduction
+            appState.accountBalance[appState.operationalMode] -= computationalUSDStakeAmount;
+            synchronizeUIVolumeBalances();
+
+            const executionAssetReferenceKey = appState.focusAssetKey;
+            const executionEntryStrikePrice = appState.marketAssets[executionAssetReferenceKey].numericalPrice;
+            const uniqueTradeTokenIdentifier = 'hft_' + Date.now() + Math.floor(Math.random()*1000);
+            
+            appState.activeTerminalTrades.push({
+                tradeId: uniqueTradeTokenIdentifier, 
+                targetAsset: executionAssetReferenceKey, 
+                transactionDirection: tradeDirectionKey,
+                financialAmountUSD: computationalUSDStakeAmount, 
+                strikePriceBoundary: executionEntryStrikePrice, 
+                temporalExpirationTimestamp: Date.now() + tradeLifespanDurationMs
             });
 
-            // Draw Straight Line on Chart
-            const color = type === 'BUY' ? '#00ffaa' : '#ff0055';
-            mainChart.addYaxisAnnotation({
-                id: tradeId, y: entryPrice, borderColor: color, strokeDashArray: 0, borderWidth: 3,
-                label: { text: `${type} ENTRY ${entryPrice.toFixed(2)}`, style: { color: '#000', background: color, fontWeight: 900, fontFamily: 'Orbitron' } }
+            // Draw concrete cross-sectional target interface line overlay onto the graph canvas
+            const lineHexColorValue = tradeDirectionKey === 'BUY' ? '#00ffaa' : '#ff007f';
+            primaryApexChartInstance.addYaxisAnnotation({
+                id: uniqueTradeTokenIdentifier, 
+                y: executionEntryStrikePrice, 
+                borderColor: lineHexColorValue, 
+                strokeDashArray: 0, 
+                borderWidth: 2,
+                label: { 
+                    text: `EXECUTION THRESHOLD: ${executionEntryStrikePrice.toFixed(2)}`, 
+                    style: { color: '#03010a', background: lineHexColorValue, fontWeight: 900, fontFamily: 'Orbitron' } 
+                }
             });
 
-            showToast(`${type} Order Placed!`, 'info');
+            showToast(`${tradeDirectionKey} ORDER CAPTURED BY LIQUIDITY LAYER`, 'info');
         }
 
-        // --- CORE MARKET ENGINE & TIMER RESOLUTION ---
-        function gameLoop() {
-            const now = Date.now();
+        // --- CORE HIGH REFRESH RATE CONTINUOUS SIMULATION ENGINE LOOP ---
+        function coreSystemExecutionLoop() {
+            const internalCurrentSystemTimestamp = Date.now();
             
-            // 1. Move the markets aggressively
-            Object.keys(state.assets).forEach(k => {
-                const a = state.assets[k];
-                const vol = a.price * 0.0005; // High volatility
-                const newPrice = a.price + (Math.random() * vol * 2) - vol;
-                a.price = newPrice;
+            // Phase 1: Force extreme price swings into data arrays across assets
+            Object.keys(appState.marketAssets).forEach(assetKey => {
+                const specificAssetObject = appState.marketAssets[assetKey];
+                const dynamicVolatilityIndex = specificAssetObject.numericalPrice * 0.0008; // Amplified volatility multiplier
+                const simulatedPriceDelta = (Math.random() * dynamicVolatilityIndex * 2) - dynamicVolatilityIndex;
+                const evaluatedNewPriceOutput = specificAssetObject.numericalPrice + simulatedPriceDelta;
                 
-                // Update candle
-                let last = a.data[a.data.length-1];
-                if(now - last.x > 60000) {
-                    a.data.push({ x: now, y: [last.y[3], newPrice, newPrice, newPrice] });
-                    a.data.shift();
+                specificAssetObject.numericalPrice = evaluatedNewPriceOutput;
+                
+                let targetHistoricalCandleItem = specificAssetObject.structuralHistory[specificAssetObject.structuralHistory.length - 1];
+                if(internalCurrentSystemTimestamp - targetHistoricalCandleItem.x > 60000) {
+                    specificAssetObject.structuralHistory.push({ 
+                        x: internalCurrentSystemTimestamp, 
+                        y: [targetHistoricalCandleItem.y[3], evaluatedNewPriceOutput, evaluatedNewPriceOutput, evaluatedNewPriceOutput] 
+                    });
+                    specificAssetObject.structuralHistory.shift();
                 } else {
-                    last.y[3] = newPrice;
-                    if(newPrice > last.y[1]) last.y[1] = newPrice;
-                    if(newPrice < last.y[2]) last.y[2] = newPrice;
+                    targetHistoricalCandleItem.y[3] = evaluatedNewPriceOutput; // update close pricing element
+                    if(evaluatedNewPriceOutput > targetHistoricalCandleItem.y[1]) targetHistoricalCandleItem.y[1] = evaluatedNewPriceOutput;
+                    if(evaluatedNewPriceOutput < targetHistoricalCandleItem.y[2]) targetHistoricalCandleItem.y[2] = evaluatedNewPriceOutput;
                 }
 
-                const el = document.getElementById(`lst-${k.replace('/','')}`);
-                if(el) el.innerText = newPrice.toFixed(2);
+                // Push dynamic values directly into visible live rows
+                const rowPricingSelectorNode = document.getElementById(`list-price-${assetKey.replace('/','')}`);
+                if(rowPricingSelectorNode) rowPricingSelectorNode.innerText = evaluatedNewPriceOutput.toFixed(2);
 
-                if(k === state.focus) {
-                    document.getElementById('chart-price').innerText = `$${newPrice.toFixed(2)}`;
-                    if(mainChart) mainChart.updateSeries([{ data: a.data }]);
+                // Re-render chart if this specific asset is selected
+                if(assetKey === appState.focusAssetKey && primaryApexChartInstance) {
+                    document.getElementById('chart-price').innerText = `$${evaluatedNewPriceOutput.toFixed(2)}`;
+                    primaryApexChartInstance.updateSeries([{ data: parseDataFormatScope(globalChartRenderType, specificAssetObject.structuralHistory) }]);
                 }
             });
 
-            // 2. Evaluate Active Trades
-            const currPrice = state.assets[state.focus].price;
-            for(let i = state.activeTrades.length - 1; i >= 0; i--) {
-                let t = state.activeTrades[i];
-                if(now >= t.expireAt) {
-                    // RESOLVE TRADE
-                    let won = false;
-                    if(t.type === 'BUY' && currPrice > t.entry) won = true;
-                    if(t.type === 'SELL' && currPrice < t.entry) won = true;
+            // Phase 2: Compute real-time intercept matrix for active execution lines
+            const activeFocusedIndexAssetPrice = appState.marketAssets[appState.focusAssetKey].numericalPrice;
+            const geographicExchangeModifier = configMatrix[appState.userAccount.geographicZone];
 
-                    if(won) {
-                        const payout = t.amount + (t.amount * 0.85);
-                        state.bal[state.mode] += payout;
-                        showToast(`WIN! +${(payout * config[state.user.country].rate).toFixed(2)}`, 'success');
-                    } else {
-                        showToast(`LOSS! Trade Expired`, 'error');
+            for(let indexOffset = appState.activeTerminalTrades.length - 1; indexOffset >= 0; indexOffset--) {
+                let trackingTradeInstance = appState.activeTerminalTrades[indexOffset];
+                
+                if(internalCurrentSystemTimestamp >= trackingTradeInstance.temporalExpirationTimestamp) {
+                    // Temporal horizon expired -> compute barrier intersection outcome matrix
+                    let evaluationResultIsWin = false;
+                    
+                    if(trackingTradeInstance.transactionDirection === 'BUY' && activeFocusedIndexAssetPrice > trackingTradeInstance.strikePriceBoundary) {
+                        evaluationResultIsWin = true;
+                    }
+                    if(trackingTradeInstance.transactionDirection === 'SELL' && activeFocusedIndexAssetPrice < trackingTradeInstance.strikePriceBoundary) {
+                        evaluationResultIsWin = true;
                     }
 
-                    mainChart.removeAnnotation(t.id);
-                    state.activeTrades.splice(i, 1);
-                    updateBal();
+                    if(evaluationResultIsWin) {
+                        const compoundFinancialReturnPayout = trackingTradeInstance.financialAmountUSD * 1.90;
+                        appState.accountBalance[appState.operationalMode] += compoundFinancialReturnPayout;
+                        
+                        const printLocalConvertedPayoutValue = (compoundFinancialReturnPayout * geographicExchangeModifier.exchangeRate).toFixed(2);
+                        showToast(`PREDICTION ALIGNED! +${geographicExchangeModifier.currencySymbol}${printLocalConvertedPayoutValue}`, 'success');
+                    } else {
+                        showToast(`MATRIX REJECTION: POSITION DEVIATED FROM HORIZON`, 'error');
+                    }
+
+                    // Remove lines cleanly
+                    primaryApexChartInstance.removeAnnotation(trackingTradeInstance.tradeId);
+                    appState.activeTerminalTrades.splice(indexOffset, 1);
+                    synchronizeUIVolumeBalances();
                 }
             }
         }
 
-        // --- PAYMENTS ---
+        // --- LIQUIDITY GATE DEPOSIT LAYER ---
         function launchPaystack() {
-            if(state.mode !== 'real') return showToast('Switch to Real Mode to deposit', 'info');
+            if(appState.operationalMode !== 'real') {
+                return showToast('SYSTEM WARNING: SWAP RADAR TERMINAL TO REAL REVENUE MODE', 'error');
+            }
             
-            const rawInput = parseFloat(document.getElementById('dep-amt').value);
-            if(!rawInput || rawInput <= 0) return showToast('Invalid amount', 'error');
-
-            const conf = config[state.user.country];
-            const usdEqv = rawInput / conf.rate;
-            
-            // $5 Minimum Logic Check
-            if(usdEqv < 5) {
-                return showToast(`Minimum deposit is $5 USD (${conf.sym}${(5 * conf.rate).toFixed(2)})`, 'error');
+            const nominalNumericalInputAmount = parseFloat(document.getElementById('dep-amt').value);
+            if(!nominalNumericalInputAmount || nominalNumericalInputAmount <= 0) {
+                return showToast('SPECIFY A VALID ALLOCATION VALUE', 'error');
             }
 
-            let handler = PaystackPop.setup({
-                key: PK_LIVE,
-                email: state.user.email,
-                amount: Math.round(rawInput * 100), // Kobo/Cents
-                currency: conf.cur,
-                ref: 'DEPOSIT_' + Date.now(),
-                callback: function(r) {
-                    state.bal.real += usdEqv;
-                    updateBal();
+            const activeTargetGeographicZoneConfig = configMatrix[appState.userAccount.geographicZone];
+            const derivedUSDValueCalculation = nominalNumericalInputAmount / activeTargetGeographicZoneConfig.exchangeRate;
+            
+            // Explicit Mandatory Enforcement Rule of $5 USD Minimal Gate
+            if(derivedUSDValueCalculation < 5.00) {
+                const requiredMinimumLocalCurrencyString = (5.00 * activeTargetGeographicZoneConfig.exchangeRate).toFixed(2);
+                return showToast(`DEPOSIT CONFLICT: MINIMAL REVENUE BARRIER IS $5.00 USD (${activeTargetGeographicZoneConfig.currencySymbol}${requiredMinimumLocalCurrencyString})`, 'error');
+            }
+
+            let paystackInlineDeploymentHandler = PaystackPop.setup({
+                key: PUBLIC_LIVE_KEY,
+                email: appState.userAccount.email,
+                amount: Math.round(nominalNumericalInputAmount * 100), 
+                currency: activeTargetGeographicZoneConfig.currencyCode,
+                ref: 'HX_TRANS_NODE_' + Date.now(),
+                callback: function(serverPayloadResponse) {
+                    appState.accountBalance.real += derivedUSDValueCalculation;
+                    synchronizeUIVolumeBalances();
                     document.getElementById('dep-amt').value = '';
-                    showToast('Deposit Successful!', 'success');
+                    showToast('LIQUID RESERVES EXPANDED SUCCESSFULY', 'success');
                     nav('dashboard');
                 },
-                onClose: function() { showToast('Gateway Closed', 'error'); }
+                onClose: function() { 
+                    showToast('PAYMENT NETWORK GATE DISCONNECTED', 'error'); 
+                }
             });
-            handler.openIframe();
+            paystackInlineDeploymentHandler.openIframe();
         }
 
+        // --- VAULT LIQUIDATION OUTFLOW LAYER ---
         function requestWithdraw() {
-            if(state.mode !== 'real') return showToast('Switch to Real Mode', 'info');
-            const amtStr = document.getElementById('with-amt').value;
-            const dest = document.getElementById('with-dest').value;
-            if(!amtStr || !dest) return showToast('Fill all fields', 'error');
+            if(appState.operationalMode !== 'real') {
+                return showToast('SWAP INTERFACE LINK TO REAL TO EXECUTE LIQUIDATION', 'error');
+            }
+            const localRawWithdrawalValueString = document.getElementById('with-amt').value;
+            const extractionDestinationAddressString = document.getElementById('with-dest').value;
             
-            const amtUSD = parseFloat(amtStr) / config[state.user.country].rate;
-            if(amtUSD > state.bal.real) return showToast('Insufficient Balance', 'error');
+            if(!localRawWithdrawalValueString || !extractionDestinationAddressString) {
+                return showToast('SPECIFY COMPLETE TARGET PARAMETERS', 'error');
+            }
+            
+            const activeZoneCurrencyConfiguration = configMatrix[appState.userAccount.geographicZone];
+            const computationalUSDWithdrawalValue = parseFloat(localRawWithdrawalValueString) / activeZoneCurrencyConfiguration.exchangeRate;
+            
+            if(computationalUSDWithdrawalValue > appState.accountBalance.real) {
+                return showToast('LIQUIDATION VALUE EXCEEDS CORERESERVE HOLDINGS', 'error');
+            }
 
-            state.bal.real -= amtUSD;
-            updateBal();
+            appState.accountBalance.real -= computationalUSDWithdrawalValue;
+            synchronizeUIVolumeBalances();
+            
             document.getElementById('with-amt').value = '';
             document.getElementById('with-dest').value = '';
-            showToast('Withdrawal Request Queued!', 'success');
-            setTimeout(() => nav('dashboard'), 1500);
+            
+            showToast('LIQUIDATION EXTRACTION TASK QUEUED INTO CLEARING NODE NETWORK', 'success');
+            setTimeout(() => nav('dashboard'), 1200);
         }
     </script>
 </body>
