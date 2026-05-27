@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="background-color: #04010f !important;">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,17 +12,21 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@600;700;900&display=swap');
         
-        body { 
+        html, body { 
             font-family: 'Rajdhani', sans-serif; 
-            background: radial-gradient(circle at 50% 50%, #14052b 0%, #060212 60%, #020007 100%);
+            background-color: #04010f !important;
+            background: radial-gradient(circle at 50% 50%, #120426 0%, #050112 70%, #020006 100%) !important;
+            color: #fff;
+            min-height: screen;
         }
         .font-cyber { font-family: 'Orbitron', sans-serif; }
         
-        /* Deeply Decorated Sci-Fi Grid Overlay Architecture */
+        /* Deeply Decorated Sci-Fi Grid Overlay Architecture with Explicit Dark Base */
         .cyber-matrix-grid {
-            background-image: linear-gradient(to right, rgba(255, 0, 127, 0.05) 2px, transparent 2px),
-                              linear-gradient(to bottom, rgba(0, 240, 255, 0.05) 2px, transparent 2px);
-            background-size: 25px 25px;
+            background-color: #04010f !important;
+            background-image: linear-gradient(to right, rgba(255, 0, 127, 0.07) 2px, transparent 2px),
+                              linear-gradient(to bottom, rgba(0, 240, 255, 0.07) 2px, transparent 2px);
+            background-size: 30px 30px;
         }
 
         /* Continuous Scanline Vector Animation */
@@ -30,24 +34,24 @@
             0% { transform: translateY(-100%); } 
             100% { transform: translateY(100vh); } 
         }
-        .matrix-sweep { animation: sweepLine 5s linear infinite; }
+        .matrix-sweep { animation: sweepLine 6s linear infinite; }
         
         /* Soft Pulse Effect for Glowing UI Points */
         @keyframes pulseGlow {
-            0%, 100% { filter: drop-shadow(0 0 4px currentColor); opacity: 0.9; }
-            50% { filter: drop-shadow(0 0 15px currentColor); opacity: 1; }
+            0%, 100% { filter: drop-shadow(0 0 5px currentColor); opacity: 0.9; }
+            50% { filter: drop-shadow(0 0 18px currentColor); opacity: 1; }
         }
         .vivid-glow-pulse { animation: pulseGlow 2s infinite ease-in-out; }
     </style>
 </head>
 <body class="min-h-screen relative overflow-x-hidden pb-36 cyber-matrix-grid">
 
-    <div class="fixed top-0 left-[-10%] w-[60%] h-[50%] bg-gradient-to-br from-purple-900/30 via-fuchsia-900/20 to-transparent rounded-full blur-[120px] pointer-events-none z-0"></div>
-    <div class="fixed bottom-10 right-[-10%] w-[50%] h-[50%] bg-gradient-to-tl from-cyan-900/30 via-pink-900/10 to-transparent rounded-full blur-[120px] pointer-events-none z-0"></div>
-    <div class="fixed inset-0 w-full h-[4px] bg-gradient-to-r from-transparent via-pink-500/40 to-transparent matrix-sweep pointer-events-none z-50"></div>
+    <div class="fixed top-0 left-[-10%] w-[60%] h-[50%] bg-gradient-to-br from-purple-950/40 via-fuchsia-950/20 to-transparent rounded-full blur-[140px] pointer-events-none z-0"></div>
+    <div class="fixed bottom-10 right-[-10%] w-[50%] h-[50%] bg-gradient-to-tl from-cyan-950/40 via-pink-950/10 to-transparent rounded-full blur-[140px] pointer-events-none z-0"></div>
+    <div class="fixed inset-0 w-full h-[4px] bg-gradient-to-r from-transparent via-pink-500/50 to-transparent matrix-sweep pointer-events-none z-50"></div>
 
-    <section id="screen-auth" class="fixed inset-0 z-[100] bg-[#04010d]/98 backdrop-blur-3xl flex items-center justify-center p-4">
-        <div class="w-full max-w-md p-8 rounded-[3rem] bg-gradient-to-b from-[#180a3a] via-[#09031a] to-[#030107] border-2 border-pink-500/50 shadow-[0_0_60px_rgba(255,0,127,0.3)]">
+    <section id="screen-auth" class="fixed inset-0 z-[100] bg-[#04010d]/99 backdrop-blur-3xl flex items-center justify-center p-4">
+        <div class="w-full max-w-md p-8 rounded-[3rem] bg-gradient-to-b from-[#160935] via-[#070214] to-[#020005] border-2 border-pink-500/60 shadow-[0_0_70px_rgba(255,0,127,0.4)]">
             
             <div class="text-center space-y-3 mb-8">
                 <div class="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-tr from-pink-500 via-purple-600 to-cyan-400 flex items-center justify-center shadow-[0_0_25px_rgba(255,0,127,0.4)]">
@@ -60,19 +64,19 @@
             <div class="space-y-5">
                 <div class="relative">
                     <label class="absolute -top-2 left-4 px-2 bg-[#12082b] text-[10px] font-cyber font-black text-pink-400 uppercase tracking-widest rounded border border-pink-500/30">OPERATOR NAME IDENTIFIER</label>
-                    <input type="text" id="auth-name" class="w-full p-4 bg-black/80 border-2 border-cyan-500/30 rounded-xl text-lg font-bold text-yellow-300 focus:border-pink-500 outline-none font-cyber" placeholder="Faith Mbatia" />
+                    <input type="text" id="auth-name" class="w-full p-4 bg-black/90 border-2 border-cyan-500/30 rounded-xl text-lg font-bold text-yellow-300 focus:border-pink-500 outline-none font-cyber" placeholder="Faith Mbatia" value="Faith Mbatia" />
                 </div>
                 
                 <div class="relative">
                     <label class="absolute -top-2 left-4 px-2 bg-[#12082b] text-[10px] font-cyber font-black text-cyan-300 uppercase tracking-widest rounded border border-cyan-500/30">COMMS SUITE EMAIL</label>
-                    <input type="email" id="auth-email" class="w-full p-4 bg-black/80 border-2 border-pink-500/30 rounded-xl text-lg font-bold text-cyan-300 focus:border-yellow-400 outline-none" placeholder="operator@network.com" />
+                    <input type="email" id="auth-email" class="w-full p-4 bg-black/90 border-2 border-pink-500/30 rounded-xl text-lg font-bold text-cyan-300 focus:border-yellow-400 outline-none" placeholder="operator@network.com" value="operator@network.com" />
                 </div>
 
                 <div class="relative">
                     <label class="absolute -top-2 left-4 px-2 bg-[#12082b] text-[10px] font-cyber font-black text-yellow-400 uppercase tracking-widest rounded border border-yellow-500/30">REGIONAL EXCHANGE REGISTRY</label>
                     <select id="auth-country" onchange="adaptCurrency()" class="w-full p-4 bg-black border-2 border-purple-500/40 rounded-xl text-base font-black text-lime-400 focus:border-cyan-400 outline-none appearance-none">
-                        <option value="NG" class="text-black">NIGERIA DECK (NGN)</option>
                         <option value="KE" class="text-black">KENYA DECK (KES)</option>
+                        <option value="NG" class="text-black">NIGERIA DECK (NGN)</option>
                         <option value="US" class="text-black">GLOBAL DECK (USD)</option>
                     </select>
                 </div>
@@ -84,7 +88,7 @@
         </div>
     </section>
 
-    <header class="sticky top-0 z-40 bg-[#070214]/90 backdrop-blur-xl border-b-2 border-pink-500/40 px-4 py-4 flex items-center justify-between shadow-[0_4px_30px_rgba(255,0,127,0.15)]">
+    <header class="sticky top-0 z-40 bg-[#050112]/95 backdrop-blur-xl border-b-2 border-pink-500/50 px-4 py-4 flex items-center justify-between shadow-[0_4px_30px_rgba(255,0,127,0.25)]">
         <div class="flex items-center space-x-3">
             <div class="w-10 h-10 rounded-xl bg-black border border-cyan-400 flex items-center justify-center shadow-[0_0_15px_rgba(0,240,255,0.4)]">
                 <i data-lucide="zap" class="w-6 h-6 text-yellow-300 animate-pulse"></i>
@@ -95,7 +99,7 @@
             </div>
         </div>
 
-        <div class="flex items-center p-1 bg-black/80 border border-purple-500/30 rounded-xl">
+        <div class="flex items-center p-1 bg-black/90 border border-purple-500/40 rounded-xl">
             <button onclick="toggleMode('demo')" id="btn-demo" class="px-4 py-1.5 rounded-lg text-xs font-cyber font-black uppercase bg-cyan-500/20 text-cyan-300 border border-cyan-400/30">DEMO NODE</button>
             <button onclick="toggleMode('real')" id="btn-real" class="px-4 py-1.5 rounded-lg text-xs font-cyber font-black uppercase text-purple-400 ml-1">REAL NODE</button>
         </div>
@@ -107,46 +111,51 @@
 
         <section id="view-dashboard" class="app-view space-y-6 view-active">
             
-            <div class="p-8 rounded-[2.5rem] bg-gradient-to-br from-[#1c083a] via-[#09021a] to-[#2d042a] border-2 border-cyan-400/40 relative overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.8)]">
-                <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(0,240,255,0.1),transparent_50%)]"></div>
+            <div class="p-6 rounded-[2.5rem] bg-gradient-to-br from-[#190638] via-[#070114] to-[#280225] border-2 border-cyan-400/50 relative overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.8)] space-y-6">
+                <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(0,240,255,0.12),transparent_50%)]"></div>
                 
-                <div class="relative z-10 text-center space-y-2">
-                    <p id="label-balance-mode" class="text-xs font-cyber font-black text-cyan-300 uppercase tracking-[0.2em] drop-shadow-[0_0_5px_#00f0ff]">SIMULATED NODE EQUITY ACCUMULATION</p>
-                    <h1 class="text-5xl font-cyber font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-yellow-300 via-amber-400 to-orange-500 drop-shadow-[0_0_15px_rgba(234,179,8,0.5)]" id="dash-balance">$10,000.00</h1>
-                    
-                    <div class="flex justify-center items-center space-x-4 pt-6 mt-6 border-t border-purple-500/20">
-                        <div>
-                            <span class="text-[10px] font-cyber font-black text-purple-400 uppercase tracking-widest block">LIQUID RESERVE CAPITAL</span>
-                            <span class="text-lg font-black text-emerald-400 block mt-0.5" id="dash-margin">$10,000.00</span>
-                        </div>
-                        <div class="w-[2px] h-10 bg-gradient-to-b from-cyan-400 to-pink-500 rounded"></div>
-                        <div>
-                            <span class="text-[10px] font-cyber font-black text-orange-400 uppercase tracking-widest block">SESSION PERFORMANCE INDEX</span>
-                            <span class="text-lg font-black text-fuchsia-400 block mt-0.5" id="dash-pnl">+$0.00</span>
-                        </div>
+                <div id="box-demo-balance" class="relative z-10 text-center p-4 rounded-2xl bg-black/40 border border-cyan-500/20 shadow-inner transition-all">
+                    <p class="text-xs font-cyber font-black text-cyan-300 uppercase tracking-[0.2em] drop-shadow-[0_0_5px_#00f0ff]">SIMULATED NODE EQUITY (DEMO)</p>
+                    <h1 class="text-4xl font-cyber font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-yellow-300 via-amber-400 to-orange-500 drop-shadow-[0_0_15px_rgba(234,179,8,0.5)] mt-1" id="dash-balance-demo">$10,000.00</h1>
+                </div>
+
+                <div id="box-real-balance" class="relative z-10 text-center p-4 rounded-2xl bg-black/40 border border-pink-500/20 shadow-inner transition-all opacity-60">
+                    <p class="text-xs font-cyber font-black text-pink-400 uppercase tracking-[0.2em] drop-shadow-[0_0_5px_#ff007f]">REAL SOVEREIGN VAULT BALANCE (REAL)</p>
+                    <h1 class="text-4xl font-cyber font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-emerald-300 via-teal-400 to-cyan-500 drop-shadow-[0_0_15px_rgba(16,185,129,0.5)] mt-1" id="dash-balance-real">$0.00</h1>
+                </div>
+                
+                <div class="flex justify-center items-center space-x-4 pt-4 border-t border-purple-500/20 relative z-10">
+                    <div class="text-center">
+                        <span class="text-[9px] font-cyber font-black text-purple-400 uppercase tracking-widest block">LIQUID RESERVE</span>
+                        <span class="text-base font-black text-emerald-400 block mt-0.5" id="dash-margin">$10,000.00</span>
+                    </div>
+                    <div class="w-[2px] h-10 bg-gradient-to-b from-cyan-400 to-pink-500 rounded"></div>
+                    <div class="text-center">
+                        <span class="text-[9px] font-cyber font-black text-orange-400 uppercase tracking-widest block">SESSION PERFORMANCE</span>
+                        <span class="text-base font-black text-fuchsia-400 block mt-0.5" id="dash-pnl">+$0.00</span>
                     </div>
                 </div>
             </div>
 
-            <div class="p-4 rounded-2xl bg-gradient-to-r from-[#0d0426] to-[#170321] border border-pink-500/30 flex items-center justify-between shadow-lg">
+            <div class="p-4 rounded-2xl bg-gradient-to-r from-[#0b0321] to-[#14021d] border border-pink-500/40 flex items-center justify-between shadow-lg">
                 <div class="flex items-center space-x-3">
                     <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-cyan-400 to-purple-600 p-[2px] shadow-[0_0_12px_rgba(0,240,255,0.3)]">
-                        <div class="w-full h-full bg-black rounded-xl flex items-center justify-center text-xl font-cyber font-black text-cyan-300" id="profile-icon">?</div>
+                        <div class="w-full h-full bg-black rounded-xl flex items-center justify-center text-xl font-cyber font-black text-cyan-300" id="profile-icon">F</div>
                     </div>
                     <div>
-                        <h4 class="text-sm font-cyber font-black text-yellow-300 uppercase tracking-wider" id="profile-name">SECURE OPERATOR</h4>
-                        <p class="text-[10px] font-cyber font-black text-pink-400 tracking-widest mt-0.5" id="profile-meta">VERIFYING LOCAL NODE LAYERS...</p>
+                        <h4 class="text-sm font-cyber font-black text-yellow-300 uppercase tracking-wider" id="profile-name">FAITH MBATIA</h4>
+                        <p class="text-[10px] font-cyber font-black text-pink-400 tracking-widest mt-0.5" id="profile-meta">KES NETWORK TERMINAL CORE NODE</p>
                     </div>
                 </div>
                 <span class="text-[9px] font-cyber font-black px-3 py-1 rounded-md bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 uppercase tracking-widest animate-pulse">SYNCED</span>
             </div>
 
             <div class="grid grid-cols-2 gap-4">
-                <button onclick="nav('deposit')" class="p-6 rounded-2xl bg-gradient-to-br from-black to-[#041a0f] border border-emerald-500/40 text-left relative overflow-hidden transition-all hover:scale-[1.02] shadow-xl">
+                <button onclick="nav('deposit')" class="p-6 rounded-2xl bg-gradient-to-br from-black to-[#03160c] border border-emerald-500/40 text-left relative overflow-hidden transition-all hover:scale-[1.02] shadow-xl">
                     <span class="text-[10px] font-cyber font-black text-emerald-400 tracking-widest block mb-1">INFLOW MODULE GATE</span>
                     <span class="text-xl font-black text-yellow-300 block tracking-wide">DEPOSIT CARD</span>
                 </button>
-                <button onclick="nav('withdraw')" class="p-6 rounded-2xl bg-gradient-to-br from-black to-[#240515] border border-pink-500/40 text-left relative overflow-hidden transition-all hover:scale-[1.02] shadow-xl">
+                <button onclick="nav('withdraw')" class="p-6 rounded-2xl bg-gradient-to-br from-black to-[#200312] border border-pink-500/40 text-left relative overflow-hidden transition-all hover:scale-[1.02] shadow-xl">
                     <span class="text-[10px] font-cyber font-black text-pink-400 tracking-widest block mb-1">OUTFLOW VAULT SYSTEM</span>
                     <span class="text-xl font-black text-cyan-300 block tracking-wide">WITHDRAWAL MATRIX</span>
                 </button>
@@ -163,7 +172,7 @@
 
         <section id="view-charts" class="app-view space-y-4 hidden">
             
-            <div class="p-4 rounded-2xl bg-gradient-to-r from-[#110433] to-[#260324] border-2 border-pink-500 shadow-[0_0_20px_rgba(255,0,127,0.25)] flex justify-between items-center relative">
+            <div class="p-4 rounded-2xl bg-gradient-to-r from-[#0e032b] to-[#220220] border-2 border-pink-500 shadow-[0_0_20px_rgba(255,0,127,0.3)] flex justify-between items-center relative">
                 <div class="flex items-center space-x-2">
                     <div class="w-2 h-2 rounded-full bg-pink-500 animate-ping"></div>
                     <div>
@@ -178,61 +187,66 @@
                 </div>
             </div>
 
-            <div class="p-3 rounded-3xl bg-[#03010a] border-2 border-purple-500/30 relative shadow-[0_0_40px_rgba(0,0,0,0.9)]">
-                <div class="flex justify-between items-center px-1 mb-2">
-                    <span class="text-[10px] font-cyber font-black text-purple-400 uppercase tracking-widest">PROPRIETARY RENDERING VECTOR MATRIX</span>
-                    <span class="text-[9px] font-cyber font-black px-2 py-0.5 bg-pink-500/20 text-pink-400 rounded animate-pulse border border-pink-500/30">LIVE RISING & FALLING FEED</span>
+            <div class="p-4 rounded-3xl bg-[#020008] border-2 border-purple-500/40 relative shadow-[0_0_40px_rgba(0,0,0,0.9)] space-y-3">
+                <div class="flex justify-between items-center px-1">
+                    <div class="flex items-center space-x-2">
+                        <span class="text-[10px] font-cyber font-black text-purple-400 uppercase tracking-widest">ENGINE SKIN:</span>
+                        <select id="chart-style-type" onchange="renderActiveCanvasGraphicsFrame()" class="bg-black/80 border border-purple-500/40 rounded px-2 py-0.5 text-[10px] font-cyber font-black text-yellow-300 outline-none cursor-pointer">
+                            <option value="solid" class="text-black">SOLID NEON MATRIX</option>
+                            <option value="hollow" class="text-black">HOLLOW CYBER MATRIX</option>
+                            <option value="heikin" class="text-black">HEIKIN-ASHI VECTOR</option>
+                            <option value="quantum-bar" class="text-black">QUANTUM SPLIT BAR</option>
+                        </select>
+                    </div>
+                    <span class="text-[9px] font-cyber font-black px-2 py-0.5 bg-pink-500/20 text-pink-400 rounded animate-pulse border border-pink-500/40 uppercase tracking-widest">LIVE GENERATOR</span>
                 </div>
                 
-                <div class="relative w-full bg-black/60 rounded-2xl p-1 border border-white/5">
+                <div class="relative w-full bg-black/80 rounded-2xl p-1 border border-white/5">
                     <canvas id="tradingEngineCanvas" class="w-full h-[280px] block"></canvas>
                 </div>
             </div>
 
-            <div class="p-6 rounded-[2.5rem] bg-gradient-to-b from-[#0e042b] via-[#04010a] to-[#1a0224] border border-purple-500/30 shadow-2xl space-y-5">
+            <div class="p-6 rounded-[2.5rem] bg-gradient-to-b from-[#0c0326] via-[#030008] to-[#16011f] border border-purple-500/40 shadow-2xl space-y-5">
                 
                 <div class="grid grid-cols-2 gap-4">
                     <div>
                         <label class="text-[10px] font-cyber font-black text-cyan-300 uppercase tracking-[0.15em] mb-1.5 block">STAKE ALLOCATION SIZE</label>
-                        <div class="bg-black/90 rounded-xl border-2 border-cyan-500/40 p-2 flex items-center shadow-inner">
-                            <span class="text-yellow-400 font-cyber font-black text-lg px-2" id="trade-sym">$</span>
-                            <input type="number" id="trade-size" value="25" class="w-full bg-transparent text-xl font-cyber font-black text-lime-400 outline-none focus:text-cyan-300 transition-colors" />
+                        <div class="bg-black/90 rounded-xl border-2 border-cyan-500/50 p-2 flex items-center shadow-inner">
+                            <span class="text-yellow-400 font-cyber font-black text-lg px-2" id="trade-sym">KSh</span>
+                            <input type="number" id="trade-size" value="2500" class="w-full bg-transparent text-xl font-cyber font-black text-lime-400 outline-none focus:text-cyan-300 transition-colors" />
                         </div>
                     </div>
                     
                     <div>
                         <label class="text-[10px] font-cyber font-black text-pink-400 uppercase tracking-[0.15em] mb-1.5 block">TEMPORAL QUANTUM TIMEOUT</label>
-                        <div class="bg-black/90 rounded-xl border-2 border-pink-500/40 p-2 flex items-center shadow-inner">
-                            <select id="trade-time" class="w-full bg-transparent text-base font-cyber font-black text-orange-400 outline-none cursor-pointer appearance-none text-center font-bold">
+                        <div class="bg-black/90 rounded-xl border-2 border-pink-500/50 p-2 flex items-center shadow-inner">
+                            <select id="trade-time" class="w-full bg-transparent text-xs font-cyber font-black text-orange-400 outline-none cursor-pointer appearance-none text-center font-bold">
                                 <option value="5000" class="text-black bg-white">5 SECONDS COUNTDOWN</option>
                                 <option value="15000" class="text-black bg-white">15 SECONDS COUNTDOWN</option>
                                 <option value="30000" class="text-black bg-white">30 SECONDS COUNTDOWN</option>
                                 <option value="60000" class="text-black bg-white">1 MINUTE LOCK HORIZON</option>
-                                <option value="300000" class="text-black bg-white">5 MINUTES LOCK HORIZON</option>
-                                <option value="3600000" class="text-black bg-white">1 HOUR LOCK HORIZON</option>
-                                <option value="7200000" class="text-black bg-white">2 HOURS LOCK HORIZON</option>
                             </select>
                         </div>
                     </div>
                 </div>
 
-                <div class="flex justify-between items-center bg-black/60 px-4 py-2 rounded-xl border border-white/5">
+                <div class="flex justify-between items-center bg-black/70 px-4 py-2 rounded-xl border border-white/5">
                     <span class="text-[10px] font-cyber font-black text-purple-400 tracking-widest uppercase">LIQUID ACCELERATION FACTOR</span>
                     <span class="text-xs font-cyber font-black text-emerald-400 tracking-wide drop-shadow-[0_0_4px_#39ff14]">PROFIT MARGIN +90% CLEAROUT</span>
                 </div>
                 
                 <div class="grid grid-cols-2 gap-4 pt-1">
-                    <button onclick="executeTrade('BUY')" class="relative py-7 rounded-2xl bg-gradient-to-t from-emerald-800 via-emerald-600 to-teal-400 text-yellow-300 shadow-[0_0_35px_rgba(0,255,170,0.4)] active:scale-95 transition-all border-2 border-emerald-300/60 overflow-hidden group">
+                    <button onclick="executeTrade('BUY')" class="relative py-6 rounded-2xl bg-gradient-to-t from-emerald-800 via-emerald-600 to-teal-400 text-yellow-300 shadow-[0_0_35px_rgba(0,255,170,0.4)] active:scale-95 transition-all border-2 border-emerald-300/60 overflow-hidden group">
                         <div class="flex flex-col items-center relative z-10">
-                            <i data-lucide="trending-up" class="w-10 h-10 mb-1 text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]"></i>
-                            <span class="text-3xl font-cyber font-black tracking-widest drop-shadow-md text-white">BUY LONG</span>
+                            <i data-lucide="trending-up" class="w-8 h-8 mb-1 text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]"></i>
+                            <span class="text-2xl font-cyber font-black tracking-widest drop-shadow-md text-white">BUY LONG</span>
                         </div>
                     </button>
                     
-                    <button onclick="executeTrade('SELL')" class="relative py-7 rounded-2xl bg-gradient-to-t from-pink-800 via-pink-600 to-fuchsia-500 text-cyan-300 shadow-[0_0_35px_rgba(255,0,127,0.4)] active:scale-95 transition-all border-2 border-pink-300/60 overflow-hidden group">
+                    <button onclick="executeTrade('SELL')" class="relative py-6 rounded-2xl bg-gradient-to-t from-pink-800 via-pink-600 to-fuchsia-500 text-cyan-300 shadow-[0_0_35px_rgba(255,0,127,0.4)] active:scale-95 transition-all border-2 border-pink-300/60 overflow-hidden group">
                         <div class="flex flex-col items-center relative z-10">
-                            <i data-lucide="trending-down" class="w-10 h-10 mb-1 text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]"></i>
-                            <span class="text-3xl font-cyber font-black tracking-widest drop-shadow-md text-white">SELL SHORT</span>
+                            <i data-lucide="trending-down" class="w-8 h-8 mb-1 text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]"></i>
+                            <span class="text-2xl font-cyber font-black tracking-widest drop-shadow-md text-white">SELL SHORT</span>
                         </div>
                     </button>
                 </div>
@@ -240,19 +254,19 @@
         </section>
 
         <section id="view-deposit" class="app-view space-y-6 hidden">
-            <div class="p-6 rounded-3xl bg-gradient-to-br from-[#03140d] to-black border-2 border-emerald-500/50 shadow-[0_0_40px_rgba(57,255,20,0.15)]">
+            <div class="p-6 rounded-3xl bg-gradient-to-br from-[#02120b] to-black border-2 border-emerald-500/60 shadow-[0_0_40px_rgba(57,255,20,0.2)]">
                 <h2 class="text-xl font-cyber font-black text-emerald-400 uppercase tracking-widest text-center mb-6 drop-shadow-[0_0_6px_#39ff14]">LIQUIDITY INFLOW GATEWAY</h2>
                 
                 <div class="space-y-4">
                     <div>
                         <label class="text-xs font-cyber font-black text-purple-300 uppercase tracking-widest block mb-2">ALLOCATION STAKE SIZE VALUE (MINIMUM BARRIER MATCH $5 USD VALUE)</label>
                         <div class="relative">
-                            <span id="dep-sym" class="absolute left-5 top-1/2 -translate-y-1/2 text-2xl font-cyber font-black text-emerald-400">$</span>
-                            <input type="number" id="dep-amt" placeholder="5.00" class="w-full p-6 pl-14 bg-black border-2 border-emerald-500/30 rounded-2xl text-4xl font-cyber font-black text-yellow-300 focus:border-emerald-400 outline-none shadow-inner" />
+                            <span id="dep-sym" class="absolute left-5 top-1/2 -translate-y-1/2 text-2xl font-cyber font-black text-emerald-400">KSh</span>
+                            <input type="number" id="dep-amt" placeholder="700" class="w-full p-6 pl-16 bg-black border-2 border-emerald-500/40 rounded-2xl text-4xl font-cyber font-black text-yellow-300 focus:border-emerald-400 outline-none shadow-inner" />
                         </div>
                     </div>
                     
-                    <div class="p-4 bg-black/60 rounded-xl border border-purple-500/20">
+                    <div class="p-4 bg-black/70 rounded-xl border border-purple-500/30">
                         <span class="text-[10px] font-cyber font-black text-yellow-300 block uppercase mb-1">COMPLIANCE ASSURANCE NODE</span>
                         <p class="text-xs text-orange-400 font-medium leading-relaxed uppercase">Real infrastructure validation channeled instantly across decentralized production networks. Automated processing engine maintains unified target validation limits securely.</p>
                     </div>
@@ -265,28 +279,27 @@
         </section>
 
         <section id="view-withdraw" class="app-view space-y-6 hidden">
-            <div class="p-6 rounded-3xl bg-gradient-to-br from-[#1c0413] to-black border-2 border-pink-500/50 shadow-[0_0_40px_rgba(255,0,127,0.15)] space-y-5">
+            <div class="p-6 rounded-3xl bg-gradient-to-br from-[#180310] to-black border-2 border-pink-500/60 shadow-[0_0_40px_rgba(255,0,127,0.2)] space-y-5">
                 <h2 class="text-xl font-cyber font-black text-pink-400 uppercase tracking-widest text-center drop-shadow-[0_0_6px_#ff007f]">RESERVE DISPENSATION PORTAL</h2>
                 
                 <div class="space-y-4">
                     <div>
                         <label class="text-xs font-cyber font-black text-purple-300 uppercase tracking-widest block mb-1.5">LIQUID CLEARANCE EXTRACTION VALUE</label>
-                        <input type="number" id="with-amt" placeholder="0.00" class="w-full p-4 bg-black border-2 border-purple-500/30 rounded-xl text-xl font-cyber font-black text-cyan-300 outline-none focus:border-pink-500 transition-colors" />
+                        <input type="number" id="with-amt" placeholder="0.00" class="w-full p-4 bg-black border-2 border-purple-500/40 rounded-xl text-xl font-cyber font-black text-cyan-300 outline-none focus:border-pink-500 transition-colors" />
                     </div>
 
                     <div>
                         <label class="text-xs font-cyber font-black text-purple-300 uppercase tracking-widest block mb-1.5">DISPENSATION RECIPIENT ENDPOINT TARGET CHANNEL</label>
-                        <select id="with-method" class="w-full p-4 bg-black border-2 border-purple-500/30 rounded-xl text-sm font-cyber font-black text-yellow-300 outline-none focus:border-pink-500">
+                        <select id="with-method" class="w-full p-4 bg-black border-2 border-purple-500/40 rounded-xl text-sm font-cyber font-black text-yellow-300 outline-none focus:border-pink-500">
                             <option value="mpesa" class="text-black">MOBILE MONEY WALLET PROTOCOL (M-PESA / AIRTEL / MTN)</option>
                             <option value="bank" class="text-black">COMMERCIAL RETAIL INSTITUTION BANK TRANSFER</option>
                             <option value="crypto" class="text-black">DECENTRALIZED VAULT ASSET NODE (USDT TRC-20 SECTOR)</option>
-                            <option value="paypal" class="text-black">GLOBAL PAYPAL VIRTUAL LEDGER BALANCE</option>
                         </select>
                     </div>
 
                     <div>
                         <label class="text-xs font-cyber font-black text-purple-300 uppercase tracking-widest block mb-1.5">ENDPOINT SECURITY DESTINATION IDENTITY ROUTING STRING</label>
-                        <input type="text" id="with-dest" placeholder="Enter recipient routing coordinates, account number or storage wallet hash identification token" class="w-full p-4 bg-black border-2 border-purple-500/30 rounded-xl text-sm font-cyber font-black text-orange-400 outline-none focus:border-pink-500 transition-all" />
+                        <input type="text" id="with-dest" placeholder="Enter recipient coordinates or account identifier" class="w-full p-4 bg-black border-2 border-purple-500/40 rounded-xl text-sm font-cyber font-black text-orange-400 outline-none focus:border-pink-500 transition-all" />
                     </div>
 
                     <button onclick="requestWithdraw()" class="w-full py-5 rounded-2xl bg-gradient-to-r from-pink-500 to-fuchsia-600 text-black font-cyber font-black text-lg uppercase tracking-[0.2em] shadow-[0_0_30px_rgba(255,0,127,0.4)] active:scale-98 transition-transform">
@@ -298,7 +311,7 @@
         
     </main>
 
-    <nav class="fixed bottom-0 left-0 right-0 z-50 bg-[#060214]/95 backdrop-blur-3xl border-t-2 border-pink-500/40 p-3 max-w-md mx-auto grid grid-cols-4 gap-2 text-center shadow-[0_-10px_40px_rgba(0,0,0,0.9)]">
+    <nav class="fixed bottom-0 left-0 right-0 z-50 bg-[#050110]/95 backdrop-blur-3xl border-t-2 border-pink-500/50 p-3 max-w-md mx-auto grid grid-cols-4 gap-2 text-center shadow-[0_-10px_40px_rgba(0,0,0,0.9)]">
         <button onclick="nav('dashboard')" id="nav-dashboard" class="flex flex-col items-center justify-center p-2 rounded-xl text-cyan-400 bg-cyan-500/10 border border-cyan-400/30 shadow-[0_0_12px_rgba(0,240,255,0.2)]"><i data-lucide="layout-grid" class="w-6 h-6 mb-1"></i><span class="text-[9px] font-cyber font-black uppercase tracking-wider">SHELL VAULT</span></button>
         <button onclick="nav('markets')" id="nav-markets" class="flex flex-col items-center justify-center p-2 rounded-xl text-purple-400"><i data-lucide="bar-chart-3" class="w-6 h-6 mb-1"></i><span class="text-[9px] font-cyber font-black uppercase tracking-wider">ASSET PIPES</span></button>
         <button onclick="nav('charts')" id="nav-charts" class="flex flex-col items-center justify-center p-2 rounded-xl text-purple-400"><i data-lucide="sliders" class="w-6 h-6 mb-1"></i><span class="text-[9px] font-cyber font-black uppercase tracking-wider">HFT CONSOLE</span></button>
@@ -306,32 +319,32 @@
     </nav>
 
     <script>
-        // --- PAYSTACK LIVE NETWORK PRODUCTION APERTURE ---
+        // --- PAYSTACK LIVE NETWORK PRODUCTION KEY ---
         const PUBLIC_PAYSTACK_PRODUCTION_KEY = 'pk_live_ebbc4bdc1da0f8fc075bae6ce78da4f9c89552bc';
         
         // --- MULTI-ZONE EXCHANGE SCALING COEFFICIENTS ---
         const regionalNetworkConfigMatrix = { 
+            KE: { labelCode: 'KES', glyphSymbol: 'KSh', multiConversionFactor: 132 },
             NG: { labelCode: 'NGN', glyphSymbol: '₦', multiConversionFactor: 1450 }, 
-            KE: { labelCode: 'KES', glyphSymbol: 'KSh', multiConversionFactor: 132 }, 
             US: { labelCode: 'USD', glyphSymbol: '$', multiConversionFactor: 1 } 
         };
 
-        // --- CORE ATOMIC MATRIX SYSTEM ENVIRONMENT STATE DATABANK ---
+        // --- CORE STATE REPOSITORY DATABANK ---
         const runtimeEngineState = {
-            operatorAccount: { name: '', email: '', regionId: 'NG', activeUnitLabel: 'NGN' },
+            operatorAccount: { name: 'Faith Mbatia', email: 'operator@network.com', regionId: 'KE', activeUnitLabel: 'KES' },
             activeInterfaceMode: 'demo', 
-            reserveBalanceLedger: { demo: 10000, real: 0 },
+            reserveBalanceLedger: { demo: 10000, real: 0 }, // Kept strictly distinct in standard USD baselines
             activeTargetAssetKey: 'BTC/USD', 
             trackedLiveHFTTrades: [],
             simulatedMarketAssets: {
-                'BTC/USD': { baselineMidpoint: 68420, pricePointsStream: [] }, 
-                'ETH/USD': { baselineMidpoint: 3480, pricePointsStream: [] },
-                'SOL/USD': { baselineMidpoint: 142.50, pricePointsStream: [] }, 
-                'GBP/USD': { baselineMidpoint: 1.2540, pricePointsStream: [] }
+                'BTC/USD': { baselineMidpoint: 48250, pricePointsStream: [] }, 
+                'ETH/USD': { baselineMidpoint: 3280, pricePointsStream: [] },
+                'SOL/USD': { baselineMidpoint: 150, pricePointsStream: [] }, 
+                'ADA/USD': { baselineMidpoint: 1.25, pricePointsStream: [] }
             }
         };
 
-        // --- HIGH DEFINITION TOAST ALARM STACK ENGINE ---
+        // --- TOAST NOTIFICATION ENGINE ---
         function showToast(messageProseText, typeContextClassification='success') {
             const visualContainerStack = document.getElementById('toast-container');
             const alertBoxNode = document.createElement('div');
@@ -345,15 +358,15 @@
             setTimeout(() => { alertBoxNode.classList.add('opacity-0'); setTimeout(()=>alertBoxNode.remove(), 350); }, 3000);
         }
 
-        // --- SEED SECTOR HISTORICAL STREAM VECTOR PACKETS ---
+        // --- PRESEED MARKET HISTORICAL DATA ---
         function preseedCandlestickHistoryArray(midpointBaseVal) {
-            let traceCollection = [], activeScalarTracker = midpointBaseVal, targetTimeTicks = Date.now() - (45 * 60000);
-            for(let i=0; i<45; i++) {
-                let dynamicFluctuationScale = activeScalarTracker * 0.0025;
+            let traceCollection = [], activeScalarTracker = midpointBaseVal, targetTimeTicks = Date.now() - (40 * 60000);
+            for(let i=0; i<40; i++) {
+                let dynamicFluctuationScale = activeScalarTracker * 0.002;
                 let openCoord = activeScalarTracker;
                 let closeCoord = openCoord + (Math.random() * dynamicFluctuationScale * 2) - dynamicFluctuationScale;
-                let highCoord = Math.max(openCoord, closeCoord) + (Math.random() * dynamicFluctuationScale * 0.4);
-                let lowCoord = Math.min(openCoord, closeCoord) - (Math.random() * dynamicFluctuationScale * 0.4);
+                let highCoord = Math.max(openCoord, closeCoord) + (Math.random() * dynamicFluctuationScale * 0.3);
+                let lowCoord = Math.min(openCoord, closeCoord) - (Math.random() * dynamicFluctuationScale * 0.3);
                 
                 traceCollection.push({ timestamp: targetTimeTicks, o: openCoord, h: highCoord, l: lowCoord, c: closeCoord });
                 activeScalarTracker = closeCoord; 
@@ -368,7 +381,7 @@
             structuralAssetNode.baselineMidpoint = structuralAssetNode.pricePointsStream[structuralAssetNode.pricePointsStream.length - 1].c;
         });
 
-        // --- BULLETPROOF RAW NATIVE GRAPHICS CANVAS RENDERING ENGINE ENGINE ---
+        // --- NATIVE GRAPHICS CANVAS DRAWING PROTOCOLS ---
         let graphicsContext2D;
         let nativeCanvasNode;
 
@@ -393,33 +406,33 @@
 
             const w = nativeCanvasNode.width;
             const h = nativeCanvasNode.height;
+            const chosenStylePattern = document.getElementById('chart-style-type').value;
 
-            // Clear framework canvas area cleanly
-            graphicsContext2D.fillStyle = '#020107';
+            // Enforce clean hyper-dark styling
+            graphicsContext2D.fillStyle = '#03010b';
             graphicsContext2D.fillRect(0, 0, w, h);
 
-            // Draw Internal High Tech Grid Matrix lines inside chart background
-            graphicsContext2D.strokeStyle = 'rgba(139, 92, 246, 0.08)';
+            // Tech Matrix Background Grid Overlay Mapping
+            graphicsContext2D.strokeStyle = 'rgba(236, 72, 153, 0.08)';
             graphicsContext2D.lineWidth = 1;
-            for(let xDelta = 0; xDelta < w; xDelta += 30) {
+            for(let xDelta = 0; xDelta < w; xDelta += 35) {
                 graphicsContext2D.beginPath(); graphicsContext2D.moveTo(xDelta, 0); graphicsContext2D.lineTo(xDelta, h); graphicsContext2D.stroke();
             }
-            for(let yDelta = 0; yDelta < h; yDelta += 30) {
+            for(let yDelta = 0; yDelta < h; yDelta += 35) {
                 graphicsContext2D.beginPath(); graphicsContext2D.moveTo(0, yDelta); graphicsContext2D.lineTo(w, yDelta); graphicsContext2D.stroke();
             }
 
             const runningHistoryDataArray = runtimeEngineState.simulatedMarketAssets[runtimeEngineState.activeTargetAssetKey].pricePointsStream;
             if(!runningHistoryDataArray || runningHistoryDataArray.length === 0) return;
 
-            // Determine bounds scaling values
+            // Boundaries Computation
             let highBoundLimit = -Infinity, lowBoundLimit = Infinity;
             runningHistoryDataArray.forEach(candleItem => {
                 if(candleItem.h > highBoundLimit) highBoundLimit = candleItem.h;
                 if(candleItem.l < lowBoundLimit) lowBoundLimit = candleItem.l;
             });
 
-            // Add margin spacing padding buffer indices
-            const spreadMarginDelta = (highBoundLimit - lowBoundLimit) * 0.1 || 1;
+            const spreadMarginDelta = (highBoundLimit - lowBoundLimit) * 0.12 || 1;
             highBoundLimit += spreadMarginDelta;
             lowBoundLimit -= spreadMarginDelta;
 
@@ -428,63 +441,102 @@
             };
 
             const elementWidthStride = w / runningHistoryDataArray.length;
-            const candleBarThicknessWidth = elementWidthStride * 0.65;
+            const candleBarThicknessWidth = elementWidthStride * 0.68;
 
-            // Phase A: Iterate over elements to render traditional glowing candles
+            // Phase A: Dynamic Stylistic Candlestick Vector Processing Loops
             runningHistoryDataArray.forEach((candleItem, dataIndex) => {
                 const computedXCenterPosition = (dataIndex * elementWidthStride) + (elementWidthStride / 2);
-                const transformedYOpen = coordinateYTransformMapping(candleItem.o);
-                const transformedYClose = coordinateYTransformMapping(candleItem.c);
-                const transformedYHigh = coordinateYTransformMapping(candleItem.h);
-                const transformedYLow = coordinateYTransformMapping(candleItem.l);
+                
+                let currentO = candleItem.o;
+                let currentC = candleItem.c;
+                let currentH = candleItem.h;
+                let currentL = candleItem.l;
 
-                const sequenceTrendIsUpward = candleItem.c >= candleItem.o;
+                // Transform values into Heikin-Ashi formulas natively if targeted
+                if(chosenStylePattern === 'heikin' && dataIndex > 0) {
+                    const prevCandle = runningHistoryDataArray[dataIndex - 1];
+                    currentC = (candleItem.o + candleItem.h + candleItem.l + candleItem.c) / 4;
+                    currentO = (prevCandle.o + prevCandle.c) / 2;
+                    currentH = Math.max(candleItem.h, currentO, currentC);
+                    currentL = Math.min(candleItem.l, currentO, currentC);
+                }
+
+                const transformedYOpen = coordinateYTransformMapping(currentO);
+                const transformedYClose = coordinateYTransformMapping(currentC);
+                const transformedYHigh = coordinateYTransformMapping(currentH);
+                const transformedYLow = coordinateYTransformMapping(currentL);
+
+                const sequenceTrendIsUpward = currentC >= currentO;
                 const dynamicShiningColorStyle = sequenceTrendIsUpward ? '#00ffcc' : '#ff0066';
 
-                // Assign maximum neon glow shadow properties
-                graphicsContext2D.shadowBlur = 6;
+                graphicsContext2D.shadowBlur = 7;
                 graphicsContext2D.shadowColor = dynamicShiningColorStyle;
-
-                // Draw technical vector wick lines
                 graphicsContext2D.strokeStyle = dynamicShiningColorStyle;
+                graphicsContext2D.fillStyle = dynamicShiningColorStyle;
+
+                // Wick lines execution matrix
                 graphicsContext2D.lineWidth = 2;
                 graphicsContext2D.beginPath();
                 graphicsContext2D.moveTo(computedXCenterPosition, transformedYHigh);
                 graphicsContext2D.lineTo(computedXCenterPosition, transformedYLow);
                 graphicsContext2D.stroke();
 
-                // Draw physical structural candle solid bars
-                graphicsContext2D.fillStyle = dynamicShiningColorStyle;
                 const boxTopCoordinateY = Math.min(transformedYOpen, transformedYClose);
-                const boxHeightSizePixels = Math.max(Math.abs(transformedYOpen - transformedYClose), 3);
-                graphicsContext2D.fillRect(computedXCenterPosition - (candleBarThicknessWidth / 2), boxTopCoordinateY, candleBarThicknessWidth, boxHeightSizePixels);
+                const boxHeightSizePixels = Math.max(Math.abs(transformedYOpen - transformedYClose), 4);
+                const boxLeftX = computedXCenterPosition - (candleBarThicknessWidth / 2);
+
+                // Multi-Skin Render Engine Architectures Execution Segment
+                if(chosenStylePattern === 'hollow') {
+                    graphicsContext2D.lineWidth = 2;
+                    if(sequenceTrendIsUpward) {
+                        graphicsContext2D.clearRect(boxLeftX, boxTopCoordinateY, candleBarThicknessWidth, boxHeightSizePixels);
+                        graphicsContext2D.fillStyle = '#03010b';
+                        graphicsContext2D.fillRect(boxLeftX, boxTopCoordinateY, candleBarThicknessWidth, boxHeightSizePixels);
+                        graphicsContext2D.strokeRect(boxLeftX, boxTopCoordinateY, candleBarThicknessWidth, boxHeightSizePixels);
+                    } else {
+                        graphicsContext2D.fillRect(boxLeftX, boxTopCoordinateY, candleBarThicknessWidth, boxHeightSizePixels);
+                    }
+                } else if(chosenStylePattern === 'quantum-bar') {
+                    // Split configuration line indicators
+                    graphicsContext2D.lineWidth = 4;
+                    graphicsContext2D.beginPath();
+                    graphicsContext2D.moveTo(boxLeftX, transformedYOpen);
+                    graphicsContext2D.lineTo(computedXCenterPosition, transformedYOpen);
+                    graphicsContext2D.moveTo(computedXCenterPosition, transformedYClose);
+                    graphicsContext2D.lineTo(boxLeftX + candleBarThicknessWidth, transformedYClose);
+                    graphicsContext2D.stroke();
+                } else {
+                    // Standard Solid / Heikin-Ashi Fills
+                    graphicsContext2D.fillRect(boxLeftX, boxTopCoordinateY, candleBarThicknessWidth, boxHeightSizePixels);
+                }
             });
 
-            // Reset glow context flags for interface utility lines
-            graphicsContext2D.shadowBlur = 0;
-
-            // Phase B: Intercept and render structural cross-sectional target transaction lines
+            // Phase B: EXPLICIT RESOLUTION AND ALIGNMENT OF CAPTURED BID TRACKING LINES
+            graphicsContext2D.shadowBlur = 0; // Reset context flags safely
+            
             runtimeEngineState.trackedLiveHFTTrades.forEach(tradeInstance => {
-                if(tradeInstance.targetAsset === runtimeEngineState.activeTargetAssetKey) {
+                if(tradeInstance.assetKey === runtimeEngineState.activeTargetAssetKey) {
                     const mappedYExecutionBoundaryLine = coordinateYTransformMapping(tradeInstance.strikePriceBoundary);
-                    const systemActionColorHex = tradeInstance.transactionDirection === 'BUY' ? '#00ffcc' : '#ff0066';
+                    const systemActionColorHex = tradeInstance.directionIntent === 'BUY' ? '#00ffcc' : '#ff0066';
 
-                    graphicsContext2D.shadowBlur = 12;
+                    // Enforce hyper-visible custom tracking target indicators
+                    graphicsContext2D.shadowBlur = 14;
                     graphicsContext2D.shadowColor = systemActionColorHex;
                     graphicsContext2D.strokeStyle = systemActionColorHex;
                     graphicsContext2D.lineWidth = 3;
 
-                    // Output line directly straight across whole grid mapping coordinates
                     graphicsContext2D.beginPath();
+                    graphicsContext2D.setLineDash([6, 4]); // Clean tech pattern dashes
                     graphicsContext2D.moveTo(0, mappedYExecutionBoundaryLine);
                     graphicsContext2D.lineTo(w, mappedYExecutionBoundaryLine);
                     graphicsContext2D.stroke();
+                    graphicsContext2D.setLineDash([]); // Reset line configurations
 
-                    // Print metadata text string flag right over the canvas baseline interface boundaries
+                    // Print persistent text label right onto the grid layers above line coordinates
                     graphicsContext2D.shadowBlur = 0;
                     graphicsContext2D.fillStyle = systemActionColorHex;
-                    graphicsContext2D.font = 'bold 10px Orbitron';
-                    graphicsContext2D.fillText(`[${tradeInstance.transactionDirection} TRIGGER CAPTURED: ${tradeInstance.strikePriceBoundary.toFixed(2)}]`, 15, mappedYExecutionBoundaryLine - 6);
+                    graphicsContext2D.font = 'black 11px Orbitron';
+                    graphicsContext2D.fillText(`[${tradeInstance.directionIntent} TARGET ACTIVE: ${tradeInstance.strikePriceBoundary.toFixed(2)}]`, 20, mappedYExecutionBoundaryLine - 8);
                 }
             });
         }
@@ -495,7 +547,7 @@
             generateProgrammaticAssetMatrixRows();
             initializeNativeCanvasEngine();
             
-            // Fast loop clock timing to simulate real-time ticks flawlessly
+            // Core processing cycle ticks at optimal frequencies
             setInterval(execGlobalProcessingEngineTick, 350); 
         });
 
@@ -506,7 +558,7 @@
 
         function executeLogin() {
             runtimeEngineState.operatorAccount.name = document.getElementById('auth-name').value || 'Faith Mbatia';
-            runtimeEngineState.operatorAccount.email = document.getElementById('auth-email').value || 'developer@omnisuite.core';
+            runtimeEngineState.operatorAccount.email = document.getElementById('auth-email').value || 'operator@network.com';
             adaptCurrency();
             
             document.getElementById('screen-auth').style.display = 'none';
@@ -541,8 +593,14 @@
             document.getElementById('btn-demo').className = targetModeIdString === 'demo' ? "px-4 py-1.5 rounded-lg text-xs font-cyber font-black uppercase bg-cyan-500/20 text-cyan-300 border border-cyan-400/30" : "px-4 py-1.5 rounded-lg text-xs font-cyber font-black uppercase text-purple-400";
             document.getElementById('btn-real').className = targetModeIdString === 'real' ? "px-4 py-1.5 rounded-lg text-xs font-cyber font-black uppercase bg-emerald-500/20 text-emerald-400 border border-emerald-400/40 shadow-md" : "px-4 py-1.5 rounded-lg text-xs font-cyber font-black uppercase text-purple-400";
             
-            document.getElementById('label-balance-mode').innerText = targetModeIdString === 'demo' ? 'SIMULATED NODE EQUITY ACCUMULATION' : 'REAL SOVEREIGN VAULT LIQUID BALANCE';
-            document.getElementById('label-balance-mode').className = targetModeIdString === 'demo' ? 'text-xs font-cyber font-black text-cyan-300 uppercase tracking-[0.2em]' : 'text-xs font-cyber font-black text-yellow-400 uppercase tracking-[0.2em]';
+            // Visual feedback reinforcing complete separate accounting modules
+            if(targetModeIdString === 'demo') {
+                document.getElementById('box-demo-balance').classList.remove('opacity-60');
+                document.getElementById('box-real-balance').classList.add('opacity-60');
+            } else {
+                document.getElementById('box-real-balance').classList.remove('opacity-60');
+                document.getElementById('box-demo-balance').classList.add('opacity-60');
+            }
             
             synchronizeUIVolumeBalances();
             showToast(`ENVIRONMENT ASSIGNED: ${targetModeIdString.toUpperCase()} CORE`, 'info');
@@ -550,11 +608,16 @@
 
         function synchronizeUIVolumeBalances() {
             const currentMatrixConfigNode = regionalNetworkConfigMatrix[runtimeEngineState.operatorAccount.regionId];
-            const processedEvaluatedRawValue = runtimeEngineState.reserveBalanceLedger[runtimeEngineState.activeInterfaceMode] * currentMatrixConfigNode.multiConversionFactor;
-            const outputEncryptedFormattedString = `${currentMatrixConfigNode.glyphSymbol}${processedEvaluatedRawValue.toLocaleString(undefined, {minimumFractionDigits:2, maximumFractionDigits:2})}`;
             
-            document.getElementById('dash-balance').innerText = outputEncryptedFormattedString;
-            document.getElementById('dash-margin').innerText = outputEncryptedFormattedString;
+            const processedDemoVal = runtimeEngineState.reserveBalanceLedger.demo * currentMatrixConfigNode.multiConversionFactor;
+            const processedRealVal = runtimeEngineState.reserveBalanceLedger.real * currentMatrixConfigNode.multiConversionFactor;
+            
+            document.getElementById('dash-balance-demo').innerText = `${currentMatrixConfigNode.glyphSymbol}${processedDemoVal.toLocaleString(undefined, {minimumFractionDigits:2, maximumFractionDigits:2})}`;
+            document.getElementById('dash-balance-real').innerText = `${currentMatrixConfigNode.glyphSymbol}${processedRealVal.toLocaleString(undefined, {minimumFractionDigits:2, maximumFractionDigits:2})}`;
+            
+            const selectedActiveRawValue = runtimeEngineState.reserveBalanceLedger[runtimeEngineState.activeInterfaceMode] * currentMatrixConfigNode.multiConversionFactor;
+            document.getElementById('dash-margin').innerText = `${currentMatrixConfigNode.glyphSymbol}${selectedActiveRawValue.toLocaleString(undefined, {minimumFractionDigits:2, maximumFractionDigits:2})}`;
+            
             document.getElementById('dep-sym').innerText = currentMatrixConfigNode.glyphSymbol;
             document.getElementById('trade-sym').innerText = currentMatrixConfigNode.glyphSymbol;
         }
@@ -592,7 +655,7 @@
             renderActiveCanvasGraphicsFrame();
         }
 
-        // --- QUANTUM HIGH VELOCITY OPTIONS TRADE TRANSACT ENTRY GATEWAY ---
+        // --- OPTIONS PLACEMENT MATRIX ---
         function executeTrade(tradeActionTypeLabelString) {
             const structuralAmountInputStr = document.getElementById('trade-size').value;
             const explicitDurationTimeoutDeltaMs = parseInt(document.getElementById('trade-time').value);
@@ -605,10 +668,10 @@
             const computationalConvertedUSDValue = parseFloat(structuralAmountInputStr) / currentSelectedRegionConfig.multiConversionFactor;
 
             if(computationalConvertedUSDValue > runtimeEngineState.reserveBalanceLedger[runtimeEngineState.activeInterfaceMode]) {
-                return showToast('TRANSACTION CONFLICT: EXCEEDS CURRENT CORERESERVE VALUES', 'error');
+                return showToast('TRANSACTION CONFLICT: EXCEEDS CURRENT ACCOUNT RESERVE VALUES', 'error');
             }
 
-            // Deduct balance instantly across current environment channels
+            // Deduct from current targeted account ledger strictly
             runtimeEngineState.reserveBalanceLedger[runtimeEngineState.activeInterfaceMode] -= computationalConvertedUSDValue;
             synchronizeUIVolumeBalances();
 
@@ -622,21 +685,22 @@
                 directionIntent: tradeActionTypeLabelString,
                 stakedValueUSD: computationalConvertedUSDValue, 
                 strikePriceBoundary: currentStrikeMarkerBoundaryPrice, 
-                temporalLimitTimestamp: Date.now() + explicitDurationTimeoutDeltaMs
+                temporalLimitTimestamp: Date.now() + explicitDurationTimeoutDeltaMs,
+                environmentMode: runtimeEngineState.activeInterfaceMode // Ensures locked link to proper accounting environment
             });
 
             renderActiveCanvasGraphicsFrame();
             showToast(`${tradeActionTypeLabelString} ORDER EXECUTED ON GRID LAYER`, 'info');
         }
 
-        // --- CORE HIGH REFRESH RATE DYNAMIC PROCESSING SIMULATION LOOP SYSTEM ---
+        // --- GLOBAL HIGH VELOCITY RUNTIME TICK CONTROLLER ---
         function execGlobalProcessingEngineTick() {
             const systemLoopCurrentTimestamp = Date.now();
             
-            // Loop Segment 1: Advance marketplace asset prices through continuous erratic waves
+            // Segment 1: Market data asset streaming updates
             Object.keys(runtimeEngineState.simulatedMarketAssets).forEach(assetKey => {
                 const targetAssetStreamObject = runtimeEngineState.simulatedMarketAssets[assetKey];
-                const activeVolatilityIndexModifier = targetAssetStreamObject.baselineMidpoint * 0.0012; // High velocity price variation index
+                const activeVolatilityIndexModifier = targetAssetStreamObject.baselineMidpoint * 0.0015; 
                 const randomizedValueShiftDelta = (Math.random() * activeVolatilityIndexModifier * 2) - activeVolatilityIndexModifier;
                 const newlyCalculatedMarketPriceOutput = targetAssetStreamObject.baselineMidpoint + randomizedValueShiftDelta;
                 
@@ -650,23 +714,21 @@
                     });
                     targetAssetStreamObject.pricePointsStream.shift();
                 } else {
-                    currentTerminalCandleItem.c = newlyCalculatedMarketPriceOutput; // update close parameters
+                    currentTerminalCandleItem.c = newlyCalculatedMarketPriceOutput; 
                     if(newlyCalculatedMarketPriceOutput > currentTerminalCandleItem.h) currentTerminalCandleItem.h = newlyCalculatedMarketPriceOutput;
                     if(newlyCalculatedMarketPriceOutput < currentTerminalCandleItem.l) currentTerminalCandleItem.l = newlyCalculatedMarketPriceOutput;
                 }
 
-                // Push values instantly onto specific catalog view list elements
                 const dynamicRowPriceContainerElement = document.getElementById(`row-stream-price-${assetKey.replace('/','')}`);
                 if(dynamicRowPriceContainerElement) dynamicRowPriceContainerElement.innerText = newlyCalculatedMarketPriceOutput.toFixed(2);
 
-                // If currently viewed inside active grid terminal, synchronize visual panels
                 if(assetKey === runtimeEngineState.activeTargetAssetKey) {
                     document.getElementById('chart-price').innerText = `$${newlyCalculatedMarketPriceOutput.toFixed(2)}`;
                     renderActiveCanvasGraphicsFrame();
                 }
             });
 
-            // Loop Segment 2: Monitor and evaluate dynamic intercept timers for active execution boundaries
+            // Segment 2: Continuous isolated monitoring of binary option expirations (Zero automated increments)
             const activeMarketAnchorMidpointPrice = runtimeEngineState.simulatedMarketAssets[runtimeEngineState.activeTargetAssetKey].baselineMidpoint;
             const userInterfaceExchangeConfig = regionalNetworkConfigMatrix[runtimeEngineState.operatorAccount.regionId];
 
@@ -674,7 +736,6 @@
                 let tradePacketInstanceNode = runtimeEngineState.trackedLiveHFTTrades[traceIndex];
                 
                 if(systemLoopCurrentTimestamp >= tradePacketInstanceNode.temporalLimitTimestamp) {
-                    // Lock timeout limit reached -> process payout computation indices
                     let transactionPredictionAligned = false;
                     
                     if(tradePacketInstanceNode.directionIntent === 'BUY' && activeMarketAnchorMidpointPrice > tradePacketInstanceNode.strikePriceBoundary) {
@@ -684,17 +745,18 @@
                         transactionPredictionAligned = true;
                     }
 
+                    const targetedAccountMode = tradePacketInstanceNode.environmentMode;
+
                     if(transactionPredictionAligned) {
-                        const compoundingPayoutVolumeUSD = tradePacketInstanceNode.stakedValueUSD * 1.90; // Returns original stake + 90% premium payout
-                        runtimeEngineState.reserveBalanceLedger[runtimeEngineState.activeInterfaceMode] += compoundingPayoutVolumeUSD;
+                        const compoundingPayoutVolumeUSD = tradePacketInstanceNode.stakedValueUSD * 1.90;
+                        runtimeEngineState.reserveBalanceLedger[targetedAccountMode] += compoundingPayoutVolumeUSD;
                         
                         const convertedPayoutPrintValue = (compoundingPayoutVolumeUSD * userInterfaceExchangeConfig.multiConversionFactor).toFixed(2);
-                        showToast(`SUCCESS! PREDICTION MATCHED: +${userInterfaceExchangeConfig.glyphSymbol}${convertedPayoutPrintValue}`, 'success');
+                        showToast(`SUCCESS! [${targetedAccountMode.toUpperCase()}] PREDICTION MATCHED: +${userInterfaceExchangeConfig.glyphSymbol}${convertedPayoutPrintValue}`, 'success');
                     } else {
-                        showToast(`OUTCOME LOSS: DIRECTION VECTOR SHIFTED AT EXPIRATION`, 'error');
+                        showToast(`OUTCOME LOSS: [${targetedAccountMode.toUpperCase()}] DIRECTION VECTOR SHIFTED AT EXPIRATION`, 'error');
                     }
 
-                    // Remove structural indicator line elements from canvas frame seamlessly
                     runtimeEngineState.trackedLiveHFTTrades.splice(traceIndex, 1);
                     synchronizeUIVolumeBalances();
                     renderActiveCanvasGraphicsFrame();
@@ -702,7 +764,7 @@
             }
         }
 
-        // --- LIQUID RESERVE CAPITAL FUNDING LAYER ---
+        // --- LIQUID CAPITAL DEPOSIT ROUTINES ---
         function launchPaystack() {
             if(runtimeEngineState.activeInterfaceMode !== 'real') {
                 return showToast('SYSTEM WARNING: CONVERT PLATFORM MODE RADAR TO REAL REVENUE DECK', 'error');
@@ -716,7 +778,6 @@
             const localCurrencyGeographicConfig = regionalNetworkConfigMatrix[runtimeEngineState.operatorAccount.regionId];
             const parsedTargetUSDEquivalentValue = rawNominalDepositInputVal / localCurrencyGeographicConfig.multiConversionFactor;
             
-            // Absolute Enforcement of the $5 USD Inflow Barrier Limit Rule
             if(parsedTargetUSDEquivalentValue < 5.00) {
                 const absoluteRequiredLocalBaselineStr = (5.00 * localCurrencyGeographicConfig.multiConversionFactor).toFixed(2);
                 return showToast(`INFLOW CONFLICT: MINIMUM CONFIGURATION VALUE IS $5.00 USD equivalent (${localCurrencyGeographicConfig.glyphSymbol}${absoluteRequiredLocalBaselineStr})`, 'error');
@@ -725,7 +786,7 @@
             let inlinePaystackDeploymentIframeHandler = PaystackPop.setup({
                 key: PUBLIC_PAYSTACK_PRODUCTION_KEY,
                 email: runtimeEngineState.operatorAccount.email,
-                amount: Math.round(rawNominalDepositInputVal * 100), // Converted to kobo/cents integer units
+                amount: Math.round(rawNominalDepositInputVal * 100), 
                 currency: localCurrencyGeographicConfig.labelCode,
                 ref: 'OMNI_TRANS_NODE_' + Date.now(),
                 callback: function(serverNetworkResponsePayload) {
@@ -742,7 +803,7 @@
             inlinePaystackDeploymentIframeHandler.openIframe();
         }
 
-        // --- MULTI-CHANNEL VAULT REFUND OUTFLOW MATRIX LAYER ---
+        // --- FUNDS DISPENSATION VAULT EXTRACTIONS ---
         function requestWithdraw() {
             if(runtimeEngineState.activeInterfaceMode !== 'real') {
                 return showToast('CONVERT PLATFORM TUNER TO REAL VAULT MODE TO DISPENSE RESERVES', 'error');
